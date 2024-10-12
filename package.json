@@ -1,0 +1,23 @@
+{
+  "name": "root",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "packageManager": "pnpm@9.12.1",
+  "scripts": {
+    "test": "nx run-many --target=test",
+    "build": "nx run-many --target=build",
+    "lint": "nx run-many --target=lint",
+    "format": "nx run-many --target=format",
+    "format:check": "nx run-many --target=format:check"
+  },
+  "devDependencies": {
+    "@jscutlery/semver": "^5.2.2",
+    "@nx/devkit": "18.3.4",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "20.12.11",
+    "nx": "18.3.4",
+    "prettier": "^3.2.5",
+    "typescript": "~5.4.5"
+  }
+}
