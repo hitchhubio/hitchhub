@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.3](https://github.com/hitchhubio/hitchhub/compare/@hitchhub/token-utils-0.1.2...@hitchhub/token-utils-0.1.3) (2024-10-12)
+
+
+### Bug Fixes
+
+* update packages ([#8](https://github.com/hitchhubio/hitchhub/issues/8)) ([e096c35](https://github.com/hitchhubio/hitchhub/commit/e096c35f77d0dbf193910536075f367fb681d8a9))
+
+
+
 ## [0.1.2](https://github.com/hitchhubio/hitchhub/compare/@hitchhub/token-utils-0.1.1...@hitchhub/token-utils-0.1.2) (2024-10-12)
 
 
