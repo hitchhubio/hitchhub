@@ -48,6 +48,9 @@ importers:
       '@aaos/eslint-config':
         specifier: ^0.4.0
         version: 0.4.0(eslint@9.12.0)(typescript@5.4.5)
+      '@aaos/nx-publish':
+        specifier: ^1.4.0
+        version: 1.4.0
       '@aaos/prettier-config':
         specifier: ^0.1.4
         version: 0.1.4
@@ -91,6 +94,9 @@ importers:
       '@aaos/eslint-config':
         specifier: ^0.4.0
         version: 0.4.0(@typescript-eslint/parser@7.18.0(eslint@9.12.0)(typescript@5.4.5))(eslint@9.12.0)(typescript@5.4.5)
+      '@aaos/nx-publish':
+        specifier: ^1.4.0
+        version: 1.4.0
       '@aaos/prettier-config':
         specifier: ^0.1.4
         version: 0.1.4
@@ -120,6 +126,9 @@ packages:
 
   '@aaos/eslint-config@0.4.0':
     resolution: {integrity: sha512-la5VQDWyFVWKZCVYLii2H+/CaT+cxMf9lZwGEkZWCp/u3G8DJiFTKNYjBkfqMbwGBOAykB/q/A15Gt0r2wvH/A==}
+
+  '@aaos/nx-publish@1.4.0':
+    resolution: {integrity: sha512-/SqqthkkFG1N4Kiy0cHFM4xIRe3Dj6USll4xre3GL2RXvKZLavyumXx+HRWIohM93qZUu17bWSRPTBIs7Gkr5Q==}
 
   '@aaos/prettier-config@0.1.4':
     resolution: {integrity: sha512-7r+cOF8y+bB953m33Vr4jPz4UKDy9NiCplbVThALD8oQSqeHXug/Rgu0HYMBW4s7/usSd6pGsMLuT0ZVYIUNOg==}
@@ -3075,7 +3084,7 @@ snapshots:
       '@eslint/eslintrc': 3.1.0
       '@eslint/js': 9.12.0
       eslint-import-resolver-typescript: 3.6.3(@typescript-eslint/parser@7.18.0(eslint@9.12.0)(typescript@5.4.5))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.18.0(eslint@9.12.0)(typescript@5.4.5))(eslint@9.12.0))(eslint@9.12.0)
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@7.18.0(eslint@9.12.0)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@7.18.0(eslint@9.12.0)(typescript@5.4.5))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.18.0(eslint@9.12.0)(typescript@5.4.5))(eslint@9.12.0))(eslint@9.12.0))(eslint@9.12.0)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@7.18.0(eslint@9.12.0)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.3)(eslint@9.12.0)
       eslint-plugin-unicorn: 54.0.0(eslint@9.12.0)
       globals: 15.11.0
       typescript-eslint: 7.18.0(eslint@9.12.0)(typescript@5.4.5)
@@ -3106,6 +3115,8 @@ snapshots:
       - eslint-plugin-import-x
       - supports-color
       - typescript
+
+  '@aaos/nx-publish@1.4.0': {}
 
   '@aaos/prettier-config@0.1.4': {}
 
@@ -4344,7 +4355,7 @@ snapshots:
       is-bun-module: 1.2.1
       is-glob: 4.0.3
     optionalDependencies:
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@7.18.0(eslint@9.12.0)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@7.18.0(eslint@9.12.0)(typescript@5.4.5))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.18.0(eslint@9.12.0)(typescript@5.4.5))(eslint@9.12.0))(eslint@9.12.0))(eslint@9.12.0)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@7.18.0(eslint@9.12.0)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.3)(eslint@9.12.0)
     transitivePeerDependencies:
       - '@typescript-eslint/parser'
       - eslint-import-resolver-node
@@ -4391,7 +4402,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.18.0(eslint@9.12.0)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@7.18.0(eslint@9.12.0)(typescript@5.4.5))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.18.0(eslint@9.12.0)(typescript@5.4.5))(eslint@9.12.0))(eslint@9.12.0))(eslint@9.12.0):
+  eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.18.0(eslint@9.12.0)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.3)(eslint@9.12.0):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.8
