@@ -1,0 +1,43 @@
+{
+  "name": "@hitchhub/tailwind",
+  "version": "0.1.0",
+  "description": "The hitchhub Tailwind utilities.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "format": "prettier 'src/**/*.ts' --write",
+    "format:check": "prettier 'src/**/*.ts' --check",
+    "lint": "eslint 'src/**/*.ts'",
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "files": [
+    "dist"
+  ],
+  "prettier": "@aaos/prettier-config",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@aaos/deepmerge": "^0.4.0",
+    "@hitchhub/tokens": "workspace:*",
+    "ts-extras": "^0.11.0"
+  },
+  "devDependencies": {
+    "@aaos/eslint-config": "^0.4.0",
+    "@aaos/nx-publish": "^1.4.0",
+    "@aaos/prettier-config": "^0.1.4",
+    "@tsconfig/node20": "^20.1.4",
+    "eslint": "^9.8.0",
+    "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.7",
+    "tsup": "^8.2.4",
+    "typescript": "5.4.5",
+    "vitest": "^1.6.0"
+  }
+}
