@@ -8,12 +8,14 @@
   "publishConfig": {
     "access": "public"
   },
+  "prettier": "@aaos/prettier-config",
   "files": [
     "dist"
   ],
   "scripts": {
     "format": "prettier 'src/**/*.{ts,json}' --write",
     "format:check": "prettier 'src/**/*.{ts,json}' --check",
+    "lint": "eslint 'src/**/*.{ts,json}'",
     "build": "pnpm build:tokens && pnpm build:source",
     "build:tokens": "tsx scripts/build.ts",
     "build:source": "tsup"
@@ -22,7 +24,9 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@aaos/eslint-config": "^0.4.0",
     "@aaos/nx-publish": "^1.4.0",
+    "@aaos/prettier-config": "^0.1.4",
     "@hitchhub/token-builder": "workspace:*",
     "@tsconfig/node20": "^20.1.4",
     "prettier": "^3.3.3",

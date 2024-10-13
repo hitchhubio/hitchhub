@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react';
 import '@hitchhub/theme-default/theme.css';
+import '@hitchhub-react/ds/styles.css';
 import './global.css';
 
 const preview: Preview = {
