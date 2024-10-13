@@ -1,7 +1,7 @@
 import { buildTokens } from '@hitchhub/token-builder';
 
 async function main() {
-  const prefix = 'hitchhub';
+  const prefix = 'hh';
 
   await buildTokens({
     source: ['tokens/light/**/*.json'],
