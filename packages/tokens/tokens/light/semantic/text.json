@@ -1,0 +1,70 @@
+{
+  "semantic": {
+    "typography": {
+      "default": {
+        "text": {
+          "lg": {
+            "$type": "typography",
+            "$value": "{primitive.typeScale.text.400}"
+          },
+          "md": {
+            "$type": "typography",
+            "$value": "{primitive.typeScale.text.300}"
+          },
+          "sm": {
+            "$type": "typography",
+            "$value": "{primitive.typeScale.text.200}"
+          }
+        }
+      },
+      "xs": {
+        "text": {
+          "lg": {
+            "$type": "typography",
+            "$value": "{primitive.typeScale.text.400}"
+          },
+          "md": {
+            "$type": "typography",
+            "$value": "{primitive.typeScale.text.300}"
+          },
+          "sm": {
+            "$type": "typography",
+            "$value": "{primitive.typeScale.text.200}"
+          }
+        }
+      },
+      "md": {
+        "text": {
+          "lg": {
+            "$type": "typography",
+            "$value": "{primitive.typeScale.text.400}"
+          },
+          "md": {
+            "$type": "typography",
+            "$value": "{primitive.typeScale.text.300}"
+          },
+          "sm": {
+            "$type": "typography",
+            "$value": "{primitive.typeScale.text.200}"
+          }
+        }
+      },
+      "xl": {
+        "text": {
+          "lg": {
+            "$type": "typography",
+            "$value": "{primitive.typeScale.text.400}"
+          },
+          "md": {
+            "$type": "typography",
+            "$value": "{primitive.typeScale.text.300}"
+          },
+          "sm": {
+            "$type": "typography",
+            "$value": "{primitive.typeScale.text.200}"
+          }
+        }
+      }
+    }
+  }
+}

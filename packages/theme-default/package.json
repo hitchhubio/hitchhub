@@ -1,0 +1,42 @@
+{
+  "name": "@hitchhub/theme-default",
+  "version": "0.1.0",
+  "description": "The hitchhub default theme.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./theme.css": "./dist/theme.css",
+    "./light.css": "./dist/light.css",
+    "./dark.css": "./dist/dark.css"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "format": "prettier 'src/**/*.ts' --write",
+    "format:check": "prettier 'src/**/*.ts' --check",
+    "lint": "eslint 'src/**/*.ts'",
+    "build": "pnpm build:tokens && pnpm build:source",
+    "build:tokens": "tsx scripts/build.ts",
+    "build:source": "tsup"
+  },
+  "prettier": "@aaos/prettier-config",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@aaos/nx-publish": "^1.4.0",
+    "@hitchhub/theme-builder": "workspace:*",
+    "@tsconfig/node20": "^20.1.4",
+    "eslint": "~9.5.0",
+    "prettier": "^3.3.3",
+    "tsup": "^8.2.4",
+    "tsx": "^4.16.5",
+    "typescript": "5.4.5"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "name": "@hitchhub-react/ds",
+  "version": "0.1.0",
+  "description": "The hitchhub collection of components.",
+  "type": "module",
+  "main": "dist/hitchhub.umd.js",
+  "module": "dist/hitchhub.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/hitchhub.esm.js",
+      "require": "./dist/hitchhub.umd.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "format": "prettier 'src/**/*.{ts,tsx}' --write",
+    "format:check": "prettier 'src/**/*.{ts,tsx}' --check",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "build": "pnpm build:ts && pnpm build:styles",
+    "build:ts": "tsup",
+    "build:styles": "tailwindcss -i ./styles.css -o ./dist/styles.css --minify"
+  },
+  "prettier": "@aaos/prettier-config",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  },
+  "dependencies": {
+    "@hitchhub/tokens": "workspace:*"
+  },
+  "devDependencies": {
+    "@aaos/eslint-config": "^0.4.0",
+    "@aaos/nx-publish": "^1.4.0",
+    "@aaos/prettier-config": "^0.1.4",
+    "@storybook/react": "^8.2.7",
+    "@storybook/test": "^8.2.7",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/react": "^18.2.78",
+    "@types/react-dom": "^18.2.25",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^9.8.0",
+    "prettier": "^3.3.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.4.13",
+    "tsup": "^8.2.4",
+    "typescript": "5.4.5"
+  }
+}
