@@ -1,6 +1,6 @@
 {
   "name": "@hitchhub-react/ds",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The hitchhub collection of components.",
   "type": "module",
   "main": "dist/hitchhub.umd.js",

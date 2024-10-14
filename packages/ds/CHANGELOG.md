@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1](https://github.com/hitchhubio/hitchhub/compare/@hitchhub-react/ds-0.1.0...@hitchhub-react/ds-0.1.1) (2024-10-14)
+
+### Dependency Updates
+
+* `@hitchhub/tokens` updated to version `0.2.0`
+
+
 # 0.1.0 (2024-10-14)
 
 ### Dependency Updates
