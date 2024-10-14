@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [0.3.0](https://github.com/hitchhubio/hitchhub/compare/@hitchhub/token-builder-0.2.0...@hitchhub/token-builder-0.3.0) (2024-10-14)
+
+
+### Features
+
+* support multiple platforms ([#10](https://github.com/hitchhubio/hitchhub/issues/10)) ([29187e7](https://github.com/hitchhubio/hitchhub/commit/29187e7cbddef78a9ff459006a1e4b576e77a019))
+
+
+
 # [0.2.0](https://github.com/hitchhubio/hitchhub/compare/@hitchhub/token-builder-0.1.2...@hitchhub/token-builder-0.2.0) (2024-10-14)
 
 
