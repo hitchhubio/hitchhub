@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [0.2.0](https://github.com/hitchhubio/hitchhub/compare/@hitchhub/token-builder-0.1.2...@hitchhub/token-builder-0.2.0) (2024-10-14)
+
+
+### Features
+
+* add react package ([#9](https://github.com/hitchhubio/hitchhub/issues/9)) ([41eb410](https://github.com/hitchhubio/hitchhub/commit/41eb4100f418da84f9d7292421e4375f947dea56))
+
+
+
 ## [0.1.2](https://github.com/hitchhubio/hitchhub/compare/@hitchhub/token-builder-0.1.1...@hitchhub/token-builder-0.1.2) (2024-10-12)
 
 ### Dependency Updates
