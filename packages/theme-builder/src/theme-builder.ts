@@ -1,5 +1,11 @@
 import { promises as fs } from 'node:fs';
-import { buildTokens } from '@hitchhub/token-builder';
+import {
+  buildTokens,
+  createPlatformCss,
+  createPlatformTypeScript,
+  createPlatformTypeScriptConsts,
+  TokenBuilderPlatform,
+} from '@hitchhub/token-builder';
 import { meta } from '@hitchhub/tokens';
 import { outputFile } from 'fs-extra';
 import { compile } from 'json-schema-to-typescript';
@@ -7,7 +13,6 @@ import { ZodTypeAny } from 'zod';
 import { zodToJsonSchema } from 'zod-to-json-schema';
 import { tokensSchema } from './validation/schema/index.js';
 import { validateDesignTokensSchema } from './validation/validate-schema.js';
-// import { validateDesignTokensFormat } from '../validation/validate-format.js';
 
 async function validateAndBuildTokens({
   source,
@@ -16,7 +21,7 @@ async function validateAndBuildTokens({
 }: {
   source: string[];
   tokens?: any;
-  platforms: any;
+  platforms: TokenBuilderPlatform[];
 }) {
   validateDesignTokensSchema({ source, tokens });
 
@@ -64,85 +69,85 @@ export async function buildTheme({
   await validateAndBuildTokens({
     source: [`${sourceFolder}/light/**/*.json`],
     tokens: meta.light.unresolved,
-    platforms: {
-      css: {
+    platforms: [
+      createPlatformCss({
         prefix,
         selector: `[data-theme="${themeId}-light"]`,
         outputFolder: outputFolderCss,
         outputFilename: 'light.css',
-      },
-      typeScript: {
+      }),
+      createPlatformTypeScript({
         header: tokensSchemaImport,
         exportName: 'metaLight',
         exportType: 'Tokens',
         outputFolder: outputFolderTypeScript,
         outputFilename: 'meta-light.ts',
         outputReferences: false,
-      },
-      typeScriptConsts: {
+      }),
+      createPlatformTypeScriptConsts({
         prefix,
         camelCase: true,
         outputFolder: outputFolderTypeScript,
         outputFilename: 'tokens-light.ts',
-      },
-    },
+      }),
+    ],
   });
 
   await validateAndBuildTokens({
     source: [`${sourceFolder}/light/**/*.json`],
     tokens: meta.light.unresolved,
-    platforms: {
-      typeScript: {
+    platforms: [
+      createPlatformTypeScript({
         header: tokensSchemaImport,
         exportName: 'metaLightUnresolved',
         exportType: 'Tokens',
         outputFolder: outputFolderTypeScript,
         outputFilename: 'meta-light-unresolved.ts',
         outputReferences: true,
-      },
-    },
+      }),
+    ],
   });
 
   await validateAndBuildTokens({
     source: [`${sourceFolder}/dark/**/*.json`],
     tokens: meta.dark.unresolved,
-    platforms: {
-      css: {
+    platforms: [
+      createPlatformCss({
         prefix,
         selector: `[data-theme="${themeId}-dark"]`,
         outputFolder: outputFolderCss,
         outputFilename: 'dark.css',
-      },
-      typeScript: {
+      }),
+      createPlatformTypeScript({
         header: tokensSchemaImport,
         exportName: 'metaDark',
         exportType: 'Tokens',
         outputFolder: outputFolderTypeScript,
         outputFilename: 'meta-dark.ts',
         outputReferences: false,
-      },
-      typeScriptConsts: {
+      }),
+      createPlatformTypeScriptConsts({
         prefix,
         camelCase: true,
         outputFolder: outputFolderTypeScript,
         outputFilename: 'tokens-dark.ts',
-      },
-    },
+      }),
+    ],
   });
 
   await validateAndBuildTokens({
     source: [`${sourceFolder}/dark/**/*.json`],
     tokens: meta.dark.unresolved,
-    platforms: {
-      typeScript: {
+    platforms: [
+      createPlatformTypeScript({
         header: tokensSchemaImport,
         exportName: 'metaDarkUnresolved',
         exportType: 'Tokens',
         outputFolder: outputFolderTypeScript,
         outputFilename: 'meta-dark-unresolved.ts',
         outputReferences: true,
-      },
-    },
+      }),
+    ],
   });
 
   const lightCss = await fs.readFile(`${outputFolderCss}/light.css`, 'utf8');
