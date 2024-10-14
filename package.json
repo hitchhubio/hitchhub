@@ -10,7 +10,8 @@
     "lint": "nx run-many --target=lint",
     "format": "nx run-many --target=format",
     "format:check": "nx run-many --target=format:check",
-    "storybook": "nx run @hitchhub-react/ds:watch & nx run @hitchhub/storybook:dev"
+    "storybook": "nx run @hitchhub-react/ds:storybook",
+    "watch": "nx run @hitchhub-react/ds:watch"
   },
   "devDependencies": {
     "@jscutlery/semver": "^5.2.2",

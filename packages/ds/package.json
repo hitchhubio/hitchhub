@@ -23,7 +23,9 @@
     "build": "pnpm build:ts && pnpm build:styles",
     "build:ts": "tsup",
     "build:styles": "tailwindcss -i ./styles.css -o ./dist/styles.css --minify",
-    "watch": "tailwindcss -i ./styles.css -o ./dist/styles.css --watch=always"
+    "watch": "tailwindcss -i ./styles.css -o ./dist/styles.css --watch=always",
+    "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build"
   },
   "prettier": "@aaos/prettier-config",
   "sideEffects": [
@@ -46,18 +48,36 @@
     "@aaos/eslint-config": "^0.4.0",
     "@aaos/nx-publish": "^1.4.0",
     "@aaos/prettier-config": "^0.1.4",
+    "@chromatic-com/storybook": "^1.6.1",
+    "@hitchhub/theme-default": "workspace:*",
+    "@hitchhub-react/ds": "workspace:*",
+    "@hitchhub-react/wireframe": "workspace:*",
+    "@storybook/addon-a11y": "^8.2.7",
+    "@storybook/addon-essentials": "^8.2.7",
+    "@storybook/addon-interactions": "^8.2.7",
+    "@storybook/addon-links": "^8.2.7",
+    "@storybook/addon-onboarding": "^8.2.7",
+    "@storybook/blocks": "^8.2.7",
     "@storybook/react": "^8.2.7",
+    "@storybook/react-vite": "^8.2.7",
     "@storybook/test": "^8.2.7",
     "@tsconfig/node20": "^20.1.4",
     "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.25",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
     "@vitejs/plugin-react": "^4.3.1",
     "eslint": "^9.8.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "eslint-plugin-storybook": "^0.8.0",
     "prettier": "^3.3.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "storybook": "^8.2.7",
     "tailwindcss": "^3.4.13",
     "tsup": "^8.2.4",
-    "typescript": "5.4.5"
+    "typescript": "5.4.5",
+    "vite": "^5.3.5"
   }
 }

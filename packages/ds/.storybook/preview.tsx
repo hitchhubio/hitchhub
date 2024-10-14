@@ -1,7 +1,9 @@
+import { WireframeBox } from '@hitchhub-react/wireframe';
 import type { Preview } from '@storybook/react';
 import React from 'react';
+import { BoxProvider } from '../src';
 import '@hitchhub/theme-default/theme.css';
-import '@hitchhub-react/ds/styles.css';
+import '../styles.css';
 import './global.css';
 
 const preview: Preview = {
@@ -14,7 +16,13 @@ const preview: Preview = {
     },
   },
   tags: ['autodocs'],
-  decorators: [(Story) => <Story />],
+  decorators: [
+    (Story) => (
+      <BoxProvider box={WireframeBox}>
+        <Story />
+      </BoxProvider>
+    ),
+  ],
 };
 
 export default preview;
