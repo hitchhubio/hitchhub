@@ -139,15 +139,6 @@ importers:
         specifier: ^5.3.5
         version: 5.4.8(@types/node@22.7.5)
 
-  packages/storybook:
-    dependencies:
-      react:
-        specifier: ^18.2.0
-        version: 18.3.1
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.3.1(react@18.3.1)
-
   packages/tailwind:
     dependencies:
       '@aaos/deepmerge':
