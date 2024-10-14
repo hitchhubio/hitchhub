@@ -1,8 +1,8 @@
 import { eslintConfig } from '@aaos/eslint-config';
 
 export default [
-  ...eslintConfig,
   {
-    ignores: ['dist/**/*'],
+    ignores: ['dist/**/*.ts'],
   },
+  ...eslintConfig,
 ];
