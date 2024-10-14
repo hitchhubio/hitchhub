@@ -19,7 +19,6 @@
   "license": "MIT",
   "dependencies": {
     "@aaos/deepmerge": "^0.4.0",
-    "@animaapp/design-tokens-validator": "^0.0.2",
     "@hitchhub/token-builder": "workspace:*",
     "@hitchhub/tokens": "workspace:*",
     "fs-extra": "^11.2.0",

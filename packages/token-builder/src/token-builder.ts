@@ -7,197 +7,22 @@ import { dtcgFormatter } from './formatters/dtcg.js';
 import { typeScriptConstsFormatter } from './formatters/typescript-consts.js';
 import { typeScriptFormatter } from './formatters/typescript.js';
 
-export type TokenBuilderPlatformConfig = {
-  css?: {
-    prefix?: string;
-    selector: string;
-    outputFolder: string;
-    outputFilename: string;
-  };
-  cssVariableObject?: {
-    prefix?: string;
-    exportName: string;
-    exportType?: string;
-    outputFolder: string;
-    outputFilename: string;
-  };
-  cssVariableConsts?: {
-    prefix?: string;
-    camelCase?: boolean;
-    outputFolder: string;
-    outputFilename: string;
-  };
-  typeScript?: {
-    header?: string;
-    exportName: string;
-    exportType?: string;
-    outputFolder: string;
-    outputFilename: string;
-    outputReferences: boolean;
-  };
-  typeScriptConsts?: {
-    prefix?: string;
-    camelCase?: boolean;
-    outputFolder: string;
-    outputFilename: string;
-  };
-  dtcg?: {
-    outputFolder: string;
-    outputFilename: string;
-  };
-  figma?: {
-    outputFolder: string;
-    outputFilename: string;
-  };
+export type TokenBuilderPlatform = {
+  id: string;
+  configure: () => PlatformConfig;
 };
 
 export type TokenBuilderOptions = {
   source?: string[];
   tokens?: any;
-  platforms: TokenBuilderPlatformConfig;
+  platforms: TokenBuilderPlatform[];
 };
 
-function ensureTrailingSlash(path: string) {
-  if (!path) {
-    return path;
-  }
-
-  return path.endsWith('/') ? path : `${path}/`;
-}
-
-function createPlatforms(platformConfig: TokenBuilderPlatformConfig) {
+function createPlatforms(platformConfig: TokenBuilderPlatform[]) {
   const platforms: Record<string, PlatformConfig> = {};
 
-  if (platformConfig.css) {
-    platforms['css'] = {
-      transformGroup: 'css/custom',
-      buildPath: ensureTrailingSlash(platformConfig.css.outputFolder),
-      prefix: platformConfig.css.prefix,
-      files: [
-        {
-          format: 'css/variables',
-          destination: platformConfig.css.outputFilename,
-        },
-      ],
-      options: {
-        showFileHeader: false,
-        selector: platformConfig.css.selector,
-        outputReferences: true,
-      },
-    };
-  }
-
-  if (platformConfig.cssVariableObject) {
-    platforms['cssVariableObject'] = {
-      transformGroup: 'css/custom',
-      buildPath: ensureTrailingSlash(
-        platformConfig.cssVariableObject.outputFolder,
-      ),
-      prefix: platformConfig.cssVariableObject.prefix,
-      files: [
-        {
-          format: 'css/variable-object',
-          destination: platformConfig.cssVariableObject.outputFilename,
-        },
-      ],
-      options: {
-        fileHeader: 'auto-generated',
-        exportName: platformConfig.cssVariableObject.exportName,
-        exportType: platformConfig.cssVariableObject.exportType,
-      },
-    };
-  }
-
-  if (platformConfig.cssVariableConsts) {
-    platforms['cssVariableConsts'] = {
-      transformGroup: 'css/custom',
-      buildPath: ensureTrailingSlash(
-        platformConfig.cssVariableConsts.outputFolder,
-      ),
-      prefix: platformConfig.cssVariableConsts.prefix,
-      files: [
-        {
-          format: 'css/variable-consts',
-          destination: platformConfig.cssVariableConsts.outputFilename,
-        },
-      ],
-      options: {
-        fileHeader: 'auto-generated',
-        camelCase: platformConfig.cssVariableConsts.camelCase,
-      },
-    };
-  }
-
-  if (platformConfig.typeScript) {
-    platforms['typeScript'] = {
-      transformGroup: 'js',
-      buildPath: ensureTrailingSlash(platformConfig.typeScript.outputFolder),
-      files: [
-        {
-          format: 'typeScript/object',
-          destination: platformConfig.typeScript.outputFilename,
-        },
-      ],
-      options: {
-        fileHeader: 'auto-generated',
-        outputReferences: platformConfig.typeScript.outputReferences,
-        header: platformConfig.typeScript.header,
-        exportName: platformConfig.typeScript.exportName,
-        exportType: platformConfig.typeScript.exportType,
-      },
-    };
-  }
-
-  if (platformConfig.typeScriptConsts) {
-    platforms['typeScriptConsts'] = {
-      transformGroup: 'typeScript/consts',
-      buildPath: ensureTrailingSlash(
-        platformConfig.typeScriptConsts.outputFolder,
-      ),
-      prefix: platformConfig.typeScriptConsts.prefix,
-      files: [
-        {
-          format: 'typeScript/consts',
-          destination: platformConfig.typeScriptConsts.outputFilename,
-        },
-      ],
-      options: {
-        fileHeader: 'auto-generated',
-        camelCase: platformConfig.typeScriptConsts.camelCase,
-      },
-    };
-  }
-
-  if (platformConfig.dtcg) {
-    platforms['dtcg'] = {
-      transformGroup: 'js',
-      buildPath: ensureTrailingSlash(platformConfig.dtcg.outputFolder),
-      files: [
-        {
-          format: 'dtcg',
-          destination: platformConfig.dtcg.outputFilename,
-        },
-      ],
-      options: {
-        outputReferences: true,
-      },
-    };
-  }
-
-  if (platformConfig.figma) {
-    platforms['figma'] = {
-      transformGroup: 'figma',
-      buildPath: ensureTrailingSlash(platformConfig.figma.outputFolder),
-      files: [
-        {
-          format: 'figma',
-          destination: platformConfig.figma.outputFilename,
-        },
-      ],
-      options: {
-        outputReferences: true,
-      },
-    };
+  for (const platform of platformConfig) {
+    platforms[platform.id] = platform.configure();
   }
 
   return platforms;

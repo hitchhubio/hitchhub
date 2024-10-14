@@ -1,78 +1,83 @@
-import { buildTokens } from '@hitchhub/token-builder';
+import {
+  buildTokens,
+  createPlatformCssVariableObject,
+  createPlatformTypeScript,
+  createPlatformTypeScriptConsts,
+} from '@hitchhub/token-builder';
 
 async function main() {
   const prefix = 'hh';
 
   await buildTokens({
     source: ['tokens/light/**/*.json'],
-    platforms: {
-      typeScript: {
+    platforms: [
+      createPlatformTypeScript({
         exportName: 'metaLight',
         outputFolder: './src/dist',
         outputFilename: 'meta-light.ts',
         outputReferences: false,
-      },
-    },
+      }),
+    ],
   });
 
   await buildTokens({
     source: ['tokens/light/**/*.json'],
-    platforms: {
-      typeScript: {
+    platforms: [
+      createPlatformTypeScript({
         exportName: 'metaLightUnresolved',
         outputFolder: './src/dist',
         outputFilename: 'meta-light-unresolved.ts',
         outputReferences: true,
-      },
-      typeScriptConsts: {
+      }),
+      createPlatformTypeScriptConsts({
         prefix,
         camelCase: true,
         outputFolder: './src/dist',
         outputFilename: 'tokens-light.ts',
-      },
-    },
+      }),
+    ],
   });
 
   await buildTokens({
     source: ['tokens/light/**/*.json', 'tokens/dark/**/*.json'],
-    platforms: {
-      typeScript: {
+    platforms: [
+      createPlatformTypeScript({
         exportName: 'metaDark',
         outputFolder: './src/dist',
         outputFilename: 'meta-dark.ts',
         outputReferences: false,
-      },
-    },
+      }),
+    ],
   });
 
   await buildTokens({
     source: ['tokens/light/**/*.json', 'tokens/dark/**/*.json'],
-    platforms: {
-      typeScript: {
+    platforms: [
+      createPlatformTypeScript({
         exportName: 'metaDarkUnresolved',
         outputFolder: './src/dist',
         outputFilename: 'meta-dark-unresolved.ts',
         outputReferences: true,
-      },
-      typeScriptConsts: {
+      }),
+      createPlatformTypeScriptConsts({
         prefix,
         camelCase: true,
         outputFolder: './src/dist',
         outputFilename: 'tokens-dark.ts',
-      },
-    },
+      }),
+    ],
   });
 
   await buildTokens({
     source: ['tokens/light/**/*.json'],
-    platforms: {
-      cssVariableObject: {
+    platforms: [
+      createPlatformCssVariableObject({
         prefix,
         exportName: 'variables',
         outputFolder: './src/dist',
         outputFilename: 'variables.ts',
-      },
-    },
+      }),
+    ],
   });
 }
 
