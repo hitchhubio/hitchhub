@@ -1,0 +1,37 @@
+{
+  "name": "@hitchhub/tokens",
+  "version": "0.1.0",
+  "description": "The hitchhub design tokens.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "prettier": "@aaos/prettier-config",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "format": "prettier 'src/**/*.{ts,json}' --write",
+    "format:check": "prettier 'src/**/*.{ts,json}' --check",
+    "lint": "eslint 'src/**/*.{ts,json}'",
+    "build": "pnpm build:tokens && pnpm build:source",
+    "build:tokens": "tsx scripts/build.ts",
+    "build:source": "tsup"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@aaos/eslint-config": "^0.4.0",
+    "@aaos/nx-publish": "^1.4.0",
+    "@aaos/prettier-config": "^0.1.4",
+    "@hitchhub/token-builder": "workspace:*",
+    "@tsconfig/node20": "^20.1.4",
+    "prettier": "^3.3.3",
+    "tsup": "^8.2.4",
+    "tsx": "^4.16.5",
+    "typescript": "5.4.5"
+  }
+}
