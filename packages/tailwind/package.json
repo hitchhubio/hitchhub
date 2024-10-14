@@ -1,6 +1,6 @@
 {
   "name": "@hitchhub/tailwind",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The hitchhub Tailwind utilities.",
   "type": "module",
   "main": "dist/index.js",
