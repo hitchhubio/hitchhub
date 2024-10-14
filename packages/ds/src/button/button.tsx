@@ -1,4 +1,4 @@
-import { Box } from '../box.js';
+import { useBox } from '../box-provider.js';
 
 export type ButtonProps = {
   children: React.ReactNode;
@@ -6,6 +6,7 @@ export type ButtonProps = {
 };
 
 export function Button({ children, onClick }: ButtonProps) {
+  const Box = useBox();
   return (
     <Box
       as="button"
