@@ -1,7 +1,7 @@
 {
-  "name": "@hitchhub-react/ds",
+  "name": "@hitchhub-react/wireframe",
   "version": "0.1.1",
-  "description": "The hitchhub collection of components.",
+  "description": "The hitchhub wireframe box.",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
@@ -20,10 +20,7 @@
     "format": "prettier 'src/**/*.{ts,tsx}' --write",
     "format:check": "prettier 'src/**/*.{ts,tsx}' --check",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
-    "build": "pnpm build:ts && pnpm build:styles",
-    "build:ts": "tsup",
-    "build:styles": "tailwindcss -i ./styles.css -o ./dist/styles.css --minify",
-    "watch": "tailwindcss -i ./styles.css -o ./dist/styles.css --watch=always"
+    "build": "tsup"
   },
   "prettier": "@aaos/prettier-config",
   "sideEffects": [
@@ -39,9 +36,7 @@
     "react": "*",
     "react-dom": "*"
   },
-  "dependencies": {
-    "@hitchhub/tokens": "workspace:*"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@aaos/eslint-config": "^0.4.0",
     "@aaos/nx-publish": "^1.4.0",

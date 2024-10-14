@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/react';
+import React from 'react';
 import '@hitchhub/theme-default/theme.css';
 import '@hitchhub-react/ds/styles.css';
 import './global.css';
@@ -13,6 +14,7 @@ const preview: Preview = {
     },
   },
   tags: ['autodocs'],
+  decorators: [(Story) => <Story />],
 };
 
 export default preview;
