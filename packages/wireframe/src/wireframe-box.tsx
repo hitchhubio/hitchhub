@@ -5,13 +5,14 @@ export type WireframeBoxProps = {
 };
 
 export function WireframeBox({
-  as: Component = 'div',
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  as = 'div',
   ...props
 }: WireframeBoxProps) {
   return (
     <div>
       <p>wireframe</p>
-      <Component {...props} />
+      <div {...props} />
     </div>
   );
 }
