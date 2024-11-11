@@ -38,7 +38,7 @@ importers:
     devDependencies:
       '@aaos/eslint-config':
         specifier: ^0.4.0
-        version: 0.4.0(@typescript-eslint/parser@7.18.0(eslint@9.12.0(jiti@1.21.6))(typescript@5.4.5))(eslint@9.12.0(jiti@1.21.6))(typescript@5.4.5)
+        version: 0.4.0(eslint@9.12.0(jiti@1.21.6))(typescript@5.4.5)
       '@aaos/nx-publish':
         specifier: ^1.4.0
         version: 1.4.0
@@ -381,16 +381,23 @@ importers:
         version: 5.4.5
 
   packages/wireframe:
+    dependencies:
+      tailwindcss:
+        specifier: 4.0.0-alpha.27
+        version: 4.0.0-alpha.27
     devDependencies:
       '@aaos/eslint-config':
         specifier: ^0.4.0
-        version: 0.4.0(eslint@9.12.0(jiti@1.21.6))(typescript@5.4.5)
+        version: 0.4.0(@typescript-eslint/parser@7.18.0(eslint@9.12.0(jiti@1.21.6))(typescript@5.4.5))(eslint@9.12.0(jiti@1.21.6))(typescript@5.4.5)
       '@aaos/nx-publish':
         specifier: ^1.4.0
         version: 1.4.0
       '@aaos/prettier-config':
         specifier: ^0.1.4
         version: 0.1.4
+      '@hitchhub/tailwind':
+        specifier: workspace:*
+        version: link:../tailwind
       '@storybook/react':
         specifier: ^8.2.7
         version: 8.3.5(@storybook/test@8.3.5(storybook@8.3.5))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.5)(typescript@5.4.5)
@@ -421,12 +428,12 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
-      tailwindcss:
-        specifier: ^3.4.13
-        version: 3.4.13
       tsup:
         specifier: ^8.2.4
         version: 8.3.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1)(typescript@5.4.5)(yaml@2.5.1)
+      tsx:
+        specifier: ^4.16.5
+        version: 4.19.1
       typescript:
         specifier: 5.4.5
         version: 5.4.5
@@ -4119,6 +4126,9 @@ packages:
     resolution: {integrity: sha512-KqjHOJKogOUt5Bs752ykCeiwvi0fKVkr5oqsFNt/8px/tA8scFPIlkygsf6jXrfCqGHz7VflA6+yytWuM+XhFw==}
     engines: {node: '>=14.0.0'}
     hasBin: true
+
+  tailwindcss@4.0.0-alpha.27:
+    resolution: {integrity: sha512-QG9CBaibjgSufKCUCd54Ni6S3Ni3RZAu11g6HtK/TgNpqL8XdsZzuHQ3RbuJmnOJZfzDm2QCpPeDtQUn0k6wEw==}
 
   tapable@2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
@@ -9015,6 +9025,8 @@ snapshots:
       sucrase: 3.35.0
     transitivePeerDependencies:
       - ts-node
+
+  tailwindcss@4.0.0-alpha.27: {}
 
   tapable@2.2.1: {}
 

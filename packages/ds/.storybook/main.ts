@@ -17,6 +17,9 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
+  features: {
+    experimentalRSC: true,
+  },
 };
 
 export default config;
