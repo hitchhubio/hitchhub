@@ -38,7 +38,7 @@ importers:
     devDependencies:
       '@aaos/eslint-config':
         specifier: ^0.4.0
-        version: 0.4.0(eslint@9.12.0(jiti@1.21.6))(typescript@5.4.5)
+        version: 0.4.0(@typescript-eslint/parser@7.18.0(eslint@9.12.0(jiti@1.21.6))(typescript@5.4.5))(eslint@9.12.0(jiti@1.21.6))(typescript@5.4.5)
       '@aaos/nx-publish':
         specifier: ^1.4.0
         version: 1.4.0
@@ -132,6 +132,9 @@ importers:
       '@hitchhub/tokens':
         specifier: workspace:*
         version: link:../tokens
+      tailwindcss:
+        specifier: 4.0.0-alpha.34
+        version: 4.0.0-alpha.34
       ts-extras:
         specifier: ^0.11.0
         version: 0.11.0
@@ -154,9 +157,49 @@ importers:
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
+      tsup:
+        specifier: ^8.2.4
+        version: 8.3.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1)(typescript@5.4.5)(yaml@2.5.1)
+      typescript:
+        specifier: 5.4.5
+        version: 5.4.5
+      vitest:
+        specifier: ^1.6.0
+        version: 1.6.0(@types/node@22.7.5)
+
+  packages/tailwind-utils:
+    dependencies:
+      '@aaos/deepmerge':
+        specifier: ^0.4.0
+        version: 0.4.0
+      '@hitchhub/tokens':
+        specifier: workspace:*
+        version: link:../tokens
       tailwindcss:
-        specifier: ^3.4.7
-        version: 3.4.13
+        specifier: 4.0.0-alpha.34
+        version: 4.0.0-alpha.34
+      ts-extras:
+        specifier: ^0.11.0
+        version: 0.11.0
+    devDependencies:
+      '@aaos/eslint-config':
+        specifier: ^0.4.0
+        version: 0.4.0(eslint@9.12.0(jiti@1.21.6))(typescript@5.4.5)
+      '@aaos/nx-publish':
+        specifier: ^1.4.0
+        version: 1.4.0
+      '@aaos/prettier-config':
+        specifier: ^0.1.4
+        version: 0.1.4
+      '@tsconfig/node20':
+        specifier: ^20.1.4
+        version: 20.1.4
+      eslint:
+        specifier: ^9.8.0
+        version: 9.12.0(jiti@1.21.6)
+      prettier:
+        specifier: ^3.3.3
+        version: 3.3.3
       tsup:
         specifier: ^8.2.4
         version: 8.3.0(jiti@1.21.6)(postcss@8.4.47)(tsx@4.19.1)(typescript@5.4.5)(yaml@2.5.1)
@@ -388,7 +431,7 @@ importers:
     devDependencies:
       '@aaos/eslint-config':
         specifier: ^0.4.0
-        version: 0.4.0(@typescript-eslint/parser@7.18.0(eslint@9.12.0(jiti@1.21.6))(typescript@5.4.5))(eslint@9.12.0(jiti@1.21.6))(typescript@5.4.5)
+        version: 0.4.0(eslint@9.12.0(jiti@1.21.6))(typescript@5.4.5)
       '@aaos/nx-publish':
         specifier: ^1.4.0
         version: 1.4.0
@@ -397,7 +440,7 @@ importers:
         version: 0.1.4
       '@hitchhub/tailwind':
         specifier: workspace:*
-        version: link:../tailwind
+        version: link:../tailwind-utils
       '@storybook/react':
         specifier: ^8.2.7
         version: 8.3.5(@storybook/test@8.3.5(storybook@8.3.5))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.5)(typescript@5.4.5)
@@ -4129,6 +4172,9 @@ packages:
 
   tailwindcss@4.0.0-alpha.27:
     resolution: {integrity: sha512-QG9CBaibjgSufKCUCd54Ni6S3Ni3RZAu11g6HtK/TgNpqL8XdsZzuHQ3RbuJmnOJZfzDm2QCpPeDtQUn0k6wEw==}
+
+  tailwindcss@4.0.0-alpha.34:
+    resolution: {integrity: sha512-SST1h774z+bVCLTpRz4TYpjJLIcomZH1HBF4OPY1YusONUYqg0/XTq0N++12mNeyu6mK7VbFIkkNtf636yudWQ==}
 
   tapable@2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
@@ -9027,6 +9073,8 @@ snapshots:
       - ts-node
 
   tailwindcss@4.0.0-alpha.27: {}
+
+  tailwindcss@4.0.0-alpha.34: {}
 
   tapable@2.2.1: {}
 

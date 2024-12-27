@@ -1,7 +1,7 @@
 {
-  "name": "@hitchhub/tailwind-utils",
-  "version": "0.0.1",
-  "description": "The hitchhub Tailwind theme.",
+  "name": "@hitchhub/tailwind",
+  "version": "0.1.1",
+  "description": "The hitchhub Tailwind utilities.",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

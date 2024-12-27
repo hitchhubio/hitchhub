@@ -32,7 +32,6 @@ describe('createTheme', () => {
   it('uses meta screen values if use variables if false', () => {
     expect(
       createTheme({
-        useVariables: false,
         meta: {
           light: {
             resolved: {

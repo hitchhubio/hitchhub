@@ -1,13 +1,14 @@
-import { CustomThemeConfig } from 'tailwindcss/types/config.js';
+import { CustomThemeConfig } from './types.js';
 
 export function createThemeClasses(
   theme: Partial<CustomThemeConfig> = {},
 ): string[] {
   const classNames: string[] = [];
 
+  // TODO: ts object entries
   if (theme.colors) {
     for (const [colorName, shades] of Object.entries(theme.colors)) {
-      for (const shade of Object.keys(shades)) {
+      for (const shade of Object.keys(shades as Record<string, string>)) {
         classNames.push(
           `bg-${colorName}-${shade}`,
           `text-${colorName}-${shade}`,

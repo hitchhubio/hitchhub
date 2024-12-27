@@ -1,8 +1,9 @@
 import { deepmerge } from '@aaos/deepmerge';
 import { variables } from '@hitchhub/tokens';
 import tailwindTheme from 'tailwindcss/defaultTheme.js';
-import { CustomThemeConfig } from 'tailwindcss/types/config.js';
 import { convertColors, toFont } from './utils.js';
+
+export type CustomThemeConfig = any;
 
 export type CreateThemeOptions = {
   meta?: any;
