@@ -1,5 +1,5 @@
 {
-  "name": "@hitchhub/tailwind",
+  "name": "@hitchhub/tailwind-utils",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "targets": {
     "version": {
@@ -15,7 +15,7 @@
       "executor": "@aaos/nx-publish:publish",
       "options": {
         "packageManager": "pnpm",
-        "projectFolderPath": "./packages/tailwind"
+        "projectFolderPath": "./packages/tailwind-utils"
       }
     },
     "github-release": {

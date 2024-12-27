@@ -1,5 +1,5 @@
 {
-  "name": "@hitchhub/tailwind-utils",
+  "name": "@hitchhub/tailwind",
   "version": "0.0.1",
   "description": "The hitchhub Tailwind theme.",
   "type": "module",

@@ -1,5 +1,5 @@
 {
-  "name": "@hitchhub/tailwind",
+  "name": "@hitchhub/tailwind-utils",
   "version": "0.1.1",
   "description": "The hitchhub Tailwind utilities.",
   "type": "module",
@@ -24,10 +24,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@aaos/deepmerge": "^0.4.0",
-    "@hitchhub/tokens": "workspace:*",
-    "tailwindcss": "4.0.0-alpha.34",
-    "ts-extras": "^0.11.0"
+    "tailwindcss": "4.0.0-alpha.34"
   },
   "devDependencies": {
     "@aaos/eslint-config": "^0.4.0",

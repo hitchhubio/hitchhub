@@ -169,18 +169,9 @@ importers:
 
   packages/tailwind-utils:
     dependencies:
-      '@aaos/deepmerge':
-        specifier: ^0.4.0
-        version: 0.4.0
-      '@hitchhub/tokens':
-        specifier: workspace:*
-        version: link:../tokens
       tailwindcss:
         specifier: 4.0.0-alpha.34
         version: 4.0.0-alpha.34
-      ts-extras:
-        specifier: ^0.11.0
-        version: 0.11.0
     devDependencies:
       '@aaos/eslint-config':
         specifier: ^0.4.0
@@ -440,7 +431,7 @@ importers:
         version: 0.1.4
       '@hitchhub/tailwind':
         specifier: workspace:*
-        version: link:../tailwind-utils
+        version: link:../tailwind
       '@storybook/react':
         specifier: ^8.2.7
         version: 8.3.5(@storybook/test@8.3.5(storybook@8.3.5))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.5)(typescript@5.4.5)
