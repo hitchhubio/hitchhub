@@ -168,10 +168,6 @@ importers:
         version: 1.6.0(@types/node@22.7.5)
 
   packages/tailwind-utils:
-    dependencies:
-      tailwindcss:
-        specifier: 4.0.0-alpha.34
-        version: 4.0.0-alpha.34
     devDependencies:
       '@aaos/eslint-config':
         specifier: ^0.4.0

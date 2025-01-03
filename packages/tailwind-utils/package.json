@@ -23,9 +23,6 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "dependencies": {
-    "tailwindcss": "4.0.0-alpha.34"
-  },
   "devDependencies": {
     "@aaos/eslint-config": "^0.4.0",
     "@aaos/nx-publish": "^1.4.0",
