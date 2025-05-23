@@ -30,7 +30,6 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@aaos/nx-publish": "^1.4.0",
     "@hitchhub/theme-builder": "workspace:*",
     "@tsconfig/node20": "^20.1.4",
     "eslint": "~9.5.0",

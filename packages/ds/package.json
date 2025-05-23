@@ -44,7 +44,6 @@
   },
   "devDependencies": {
     "@aaos/eslint-config": "^0.4.0",
-    "@aaos/nx-publish": "^1.4.0",
     "@aaos/prettier-config": "^0.1.4",
     "@storybook/react": "^8.2.7",
     "@storybook/test": "^8.2.7",

@@ -13,7 +13,6 @@
     "storybook": "nx run @hitchhub-react/ds:watch & nx run @hitchhub/storybook:dev"
   },
   "devDependencies": {
-    "@jscutlery/semver": "^5.2.2",
     "@nx/devkit": "20.0.0",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "22.7.5",
