@@ -14,6 +14,9 @@ importers:
       '@nx/js':
         specifier: ^21.1.2
         version: 21.1.2(@babel/traverse@7.27.1)(nx@21.1.2)
+      '@tsconfig/node20':
+        specifier: ^20.1.5
+        version: 20.1.5
       nx:
         specifier: 21.1.2
         version: 21.1.2
@@ -26,7 +29,7 @@ importers:
     devDependencies:
       '@aaos/eslint-config':
         specifier: ^0.4.0
-        version: 0.4.0(@typescript-eslint/parser@7.18.0(eslint@9.27.0(jiti@2.6.1))(typescript@5.8.3))(eslint@9.27.0(jiti@2.6.1))(typescript@5.8.3)
+        version: 0.4.0(eslint@9.27.0(jiti@2.6.1))(typescript@5.8.3)
       '@aaos/prettier-config':
         specifier: ^0.1.4
         version: 0.1.4
@@ -65,7 +68,7 @@ importers:
         version: 19.1.0(react@19.1.0)
       tailwindcss:
         specifier: ^4.1.7
-        version: 4.1.7
+        version: 4.1.16
       tsup:
         specifier: ^8.5.0
         version: 8.5.0(jiti@2.6.1)(postcss@8.5.3)(tsx@4.19.4)(typescript@5.8.3)(yaml@2.8.0)
@@ -187,7 +190,7 @@ importers:
         version: 3.5.3
       tailwindcss:
         specifier: ^4.1.7
-        version: 4.1.7
+        version: 4.1.16
       tsup:
         specifier: ^8.5.0
         version: 8.5.0(jiti@2.6.1)(postcss@8.5.3)(tsx@4.19.4)(typescript@5.8.3)(yaml@2.8.0)
@@ -346,7 +349,7 @@ importers:
     devDependencies:
       '@aaos/eslint-config':
         specifier: ^0.4.0
-        version: 0.4.0(eslint@9.27.0(jiti@2.6.1))(typescript@5.8.3)
+        version: 0.4.0(@typescript-eslint/parser@7.18.0(eslint@9.27.0(jiti@2.6.1))(typescript@5.8.3))(eslint@9.27.0(jiti@2.6.1))(typescript@5.8.3)
       '@aaos/prettier-config':
         specifier: ^0.1.4
         version: 0.1.4
@@ -4358,9 +4361,6 @@ packages:
 
   tailwindcss@4.1.16:
     resolution: {integrity: sha512-pONL5awpaQX4LN5eiv7moSiSPd/DLDzKVRJz8Q9PgzmAdd1R4307GQS2ZpfiN7ZmekdQrfhZZiSE5jkLR4WNaA==}
-
-  tailwindcss@4.1.7:
-    resolution: {integrity: sha512-kr1o/ErIdNhTz8uzAYL7TpaUuzKIE6QPQ4qmSdxnoX/lo+5wmUHQA6h3L5yIqEImSRnAAURDirLu/BgiXGPAhg==}
 
   tapable@2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
@@ -9277,8 +9277,6 @@ snapshots:
   supports-preserve-symlinks-flag@1.0.0: {}
 
   tailwindcss@4.1.16: {}
-
-  tailwindcss@4.1.7: {}
 
   tapable@2.2.1: {}
 
