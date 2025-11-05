@@ -26,18 +26,17 @@
   "dependencies": {
     "@aaos/deepmerge": "^0.4.0",
     "@hitchhub/tokens": "workspace:*",
-    "ts-extras": "^0.11.0"
+    "ts-extras": "^0.14.0"
   },
   "devDependencies": {
     "@aaos/eslint-config": "^0.4.0",
-    "@aaos/nx-publish": "^1.4.0",
     "@aaos/prettier-config": "^0.1.4",
-    "@tsconfig/node20": "^20.1.4",
-    "eslint": "^9.8.0",
-    "prettier": "^3.3.3",
-    "tailwindcss": "^3.4.7",
-    "tsup": "^8.2.4",
-    "typescript": "5.4.5",
-    "vitest": "^1.6.0"
+    "@tsconfig/node20": "^20.1.5",
+    "eslint": "^9.27.0",
+    "prettier": "^3.5.3",
+    "tailwindcss": "^4.1.7",
+    "tsup": "^8.5.0",
+    "typescript": "5.8.3",
+    "vitest": "^3.1.4"
   }
 }

@@ -24,5 +24,17 @@
     "version": {
       "dependsOn": ["^version"]
     }
+  },
+  "release": {
+    "projectsRelationship": "independent",
+    "version": {
+      "conventionalCommits": true
+    },
+    "changelog": {
+      "projectChangelogs": true
+    },
+    "git": {
+      "commitMessage": "chore: update version [no ci]"
+    }
   }
 }

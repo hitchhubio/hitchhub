@@ -30,13 +30,12 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@aaos/nx-publish": "^1.4.0",
     "@hitchhub/theme-builder": "workspace:*",
-    "@tsconfig/node20": "^20.1.4",
-    "eslint": "~9.5.0",
-    "prettier": "^3.3.3",
-    "tsup": "^8.2.4",
-    "tsx": "^4.16.5",
-    "typescript": "5.4.5"
+    "@tsconfig/node20": "^20.1.5",
+    "eslint": "~9.27.0",
+    "prettier": "^3.5.3",
+    "tsup": "^8.5.0",
+    "tsx": "^4.19.4",
+    "typescript": "5.8.3"
   }
 }

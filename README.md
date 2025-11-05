@@ -22,7 +22,7 @@ All visual primitives are defined as [DTCG JSON](https://www.designtokens.org/) 
 ```json
 {
   "$type": "color",
-  "$value": "#34507B",
+  "$value": "#34507B"
 }
 ```
 

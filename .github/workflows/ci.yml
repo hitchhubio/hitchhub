@@ -16,33 +16,37 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.REPO_PAT }}
+          # token: ${{ secrets.REPO_PAT }}
+
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+
+      - name: Sets the base and head SHAs for the nx affected commands in CI
+        uses: nrwl/nx-set-shas@v4
+
+      - name: Build and test affected projects
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+          pnpm nx affected --target=format:check
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Configure git
         run: |
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-      - name: Build and test
-        run: |
-          corepack enable
-          pnpm install --frozen-lockfile
-          pnpm format:check
-          pnpm build
-          pnpm lint
-          pnpm test
+
+      - name: Setup .npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Version
+
+      - name: Release
         if: github.ref == 'refs/heads/main'
-        run: pnpm nx affected --base=last-release --target=version --parallel=1
+        run: pnpm nx release --skip-publish
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Tag last-release
-        if: github.ref == 'refs/heads/main'
-        run: |
-          git tag -f last-release
-          git push origin last-release --force

@@ -22,18 +22,17 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "ts-extras": "^0.13.0"
+    "ts-extras": "^0.14.0"
   },
   "devDependencies": {
     "@aaos/eslint-config": "^0.4.0",
-    "@aaos/nx-publish": "^1.4.0",
     "@aaos/prettier-config": "^0.1.4",
-    "@tsconfig/node20": "^20.1.4",
-    "@types/lodash": "^4.17.7",
-    "eslint": "^9.8.0",
-    "prettier": "^3.3.3",
-    "tsup": "^8.2.4",
-    "typescript": "5.6.3",
-    "vitest": "^2.1.2"
+    "@tsconfig/node20": "^20.1.5",
+    "@types/lodash": "^4.17.17",
+    "eslint": "^9.27.0",
+    "prettier": "^3.5.3",
+    "tsup": "^8.5.0",
+    "typescript": "5.8.3",
+    "vitest": "^3.1.4"
   }
 }
