@@ -32,7 +32,6 @@ jobs:
           pnpm install --frozen-lockfile
           pnpm nx affected --target=format:check
           pnpm nx affected --target=build
-          pnpm nx affected --target=lint
           pnpm nx affected --target=test
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

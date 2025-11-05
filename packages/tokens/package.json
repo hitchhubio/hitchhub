@@ -28,9 +28,10 @@
     "@aaos/prettier-config": "^0.1.4",
     "@hitchhub/token-builder": "workspace:*",
     "@tsconfig/node20": "^20.1.5",
+    "eslint": "^9.27.0",
     "prettier": "^3.5.3",
     "tsup": "^8.5.0",
     "tsx": "^4.19.4",
-    "typescript": "5.4.5"
+    "typescript": "5.8.3"
   }
 }
