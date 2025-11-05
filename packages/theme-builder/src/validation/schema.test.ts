@@ -1,4 +1,5 @@
-import { TokensValidationError, validateDesignTokens } from './schema/index.js';
+import type { TokensValidationError } from './schema/index';
+import { validateDesignTokens } from './schema/index';
 
 describe('validateDesignTokensSchema', () => {
   it('should fail with no primitives', () => {
@@ -7,7 +8,7 @@ describe('validateDesignTokensSchema', () => {
     } catch (error) {
       const validationError = error as TokensValidationError;
       expect(validationError.errors).toContainEqual({
-        message: 'primitive is required.',
+        message: `The path 'primitive' is required.`,
         path: 'primitive',
       });
     }
@@ -23,7 +24,7 @@ describe('validateDesignTokensSchema', () => {
     } catch (error) {
       const validationError = error as TokensValidationError;
       expect(validationError.errors).toContainEqual({
-        message: 'color is required.',
+        message: `The path 'color' is required.`,
         path: 'primitive.color',
       });
     }
@@ -41,7 +42,7 @@ describe('validateDesignTokensSchema', () => {
     } catch (error) {
       const validationError = error as TokensValidationError;
       expect(validationError.errors).toContainEqual({
-        message: 'gray is required.',
+        message: `The path 'gray' is required.`,
         path: 'primitive.color.gray',
       });
     }
@@ -61,7 +62,7 @@ describe('validateDesignTokensSchema', () => {
     } catch (error) {
       const validationError = error as TokensValidationError;
       expect(validationError.errors).toContainEqual({
-        message: '50 is required.',
+        message: `The path '50' is required.`,
         path: 'primitive.color.gray.50',
       });
     }
@@ -111,7 +112,7 @@ describe('validateDesignTokensSchema', () => {
     } catch (error) {
       const validationError = error as TokensValidationError;
       expect(validationError.errors).toContainEqual({
-        message: 'Color must be a full lowercase hex value.',
+        message: `The path '50' must be a full lowercase hex value.`,
         path: 'primitive.color.gray.50.$value',
       });
     }

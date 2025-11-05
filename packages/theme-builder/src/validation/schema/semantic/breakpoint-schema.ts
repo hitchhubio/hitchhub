@@ -1,16 +1,16 @@
 import {
-  createZodSchema,
-  createPixelSchema,
+  createAliasSchema,
   createTokenSchema,
+  createZodSchema,
 } from '../shared';
 
-export const screenSchema = createZodSchema({
-  name: 'screen',
+export const breakpointSchema = createZodSchema({
+  name: 'breakpoint',
   values: ['xs', 'sm', 'md', 'lg', 'xl', '2xl'],
   transform: ({ value }) => {
     return createTokenSchema({
       type: 'dimension',
-      valueSchema: createPixelSchema(value),
+      valueSchema: createAliasSchema(value),
       name: value,
     });
   },

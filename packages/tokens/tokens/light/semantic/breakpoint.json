@@ -1,0 +1,12 @@
+{
+  "semantic": {
+    "breakpoint": {
+      "xs": { "$type": "dimension", "$value": "{primitive.screen.xs}" },
+      "sm": { "$type": "dimension", "$value": "{primitive.screen.sm}" },
+      "md": { "$type": "dimension", "$value": "{primitive.screen.md}" },
+      "lg": { "$type": "dimension", "$value": "{primitive.screen.lg}" },
+      "xl": { "$type": "dimension", "$value": "{primitive.screen.xl}" },
+      "2xl": { "$type": "dimension", "$value": "{primitive.screen.2xl}" }
+    }
+  }
+}

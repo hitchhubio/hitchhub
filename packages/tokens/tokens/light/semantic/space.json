@@ -1,0 +1,62 @@
+{
+  "semantic": {
+    "space": {
+      "heading": {
+        "marginTop": {
+          "default": {
+            "$type": "dimension",
+            "$value": "1em"
+          }
+        },
+        "marginBottom": {
+          "default": {
+            "$type": "dimension",
+            "$value": "0.5em"
+          }
+        }
+      },
+      "body": {
+        "marginTop": {
+          "default": {
+            "$type": "dimension",
+            "$value": "0"
+          }
+        },
+        "marginBottom": {
+          "default": {
+            "$type": "dimension",
+            "$value": "2em"
+          }
+        }
+      },
+      "form": {
+        "paddingX": {
+          "default": {
+            "$type": "dimension",
+            "$value": "{primitive.space.4}"
+          },
+          "sm": {
+            "$type": "dimension",
+            "$value": "{primitive.space.2}"
+          }
+        },
+        "paddingY": {
+          "default": {
+            "$type": "dimension",
+            "$value": "{primitive.space.3}"
+          },
+          "sm": {
+            "$type": "dimension",
+            "$value": "{primitive.space.1}"
+          }
+        },
+        "gapY": {
+          "default": {
+            "$type": "dimension",
+            "$value": "{primitive.space.1}"
+          }
+        }
+      }
+    }
+  }
+}

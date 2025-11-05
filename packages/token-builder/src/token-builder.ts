@@ -6,6 +6,8 @@ import { cssVariableObjectFormatter } from './formatters/css-variable-object.js'
 import { dtcgFormatter } from './formatters/dtcg.js';
 import { typeScriptConstsFormatter } from './formatters/typescript-consts.js';
 import { typeScriptFormatter } from './formatters/typescript.js';
+import { tailwindThemeFormatter } from './formatters/tailwind-theme.js';
+import { figmaFormatter } from './formatters/figma.js';
 
 export type TokenBuilderPlatform = {
   id: string;
@@ -196,6 +198,16 @@ async function build({ source, tokens, platforms }: TokenBuilderOptions) {
   styleDictionary.registerFormat({
     name: 'css/variable-consts',
     format: cssVariableConstsFormatter,
+  });
+
+  styleDictionary.registerFormat({
+    name: 'tailwind/theme',
+    format: tailwindThemeFormatter,
+  });
+
+  styleDictionary.registerFormat({
+    name: 'figma',
+    format: figmaFormatter,
   });
 
   await styleDictionary.buildAllPlatforms();

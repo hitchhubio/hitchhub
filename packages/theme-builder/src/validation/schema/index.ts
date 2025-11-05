@@ -1,2 +1,2 @@
-export * from './tokens-schema.js';
-export * from './tokens-validation-error.js';
+export * from './tokens-unresolved-schema';
+export * from './tokens-validation-error';

@@ -2,6 +2,7 @@ import { promises as fs } from 'node:fs';
 import {
   buildTokens,
   createPlatformCss,
+  createPlatformTailwindTheme,
   createPlatformTypeScript,
   createPlatformTypeScriptConsts,
   TokenBuilderPlatform,
@@ -11,7 +12,7 @@ import { outputFile } from 'fs-extra';
 import { compile } from 'json-schema-to-typescript';
 import { ZodTypeAny } from 'zod';
 import { zodToJsonSchema } from 'zod-to-json-schema';
-import { tokensSchema } from './validation/schema/index.js';
+import { tokensUnresolvedSchema } from './validation/schema/index.js';
 import { validateDesignTokensSchema } from './validation/validate-schema.js';
 
 async function validateAndBuildTokens({
@@ -61,7 +62,10 @@ export async function buildTheme({
 
   const prefix = 'hh';
 
-  const tsSchema = await convertZodSchemaToTypeScriptString(tokensSchema);
+  const tsSchema = await convertZodSchemaToTypeScriptString(
+    tokensUnresolvedSchema,
+  );
+
   await outputFile(`${outputFolderTypeScript}/schema.ts`, tsSchema);
 
   const tokensSchemaImport = `import { Tokens } from "./schema.js";`;
@@ -163,4 +167,16 @@ export async function buildTheme({
     `${outputFolderCss}/theme.css`,
     [lightCssRoot, darkCss].join('\n'),
   );
+
+  await validateAndBuildTokens({
+    source: [`${sourceFolder}/light/**/*.json`],
+    tokens: meta.light.unresolved,
+    platforms: [
+      createPlatformTailwindTheme({
+        prefix,
+        outputFolder: outputFolderCss,
+        outputFilename: 'tailwind.css',
+      }),
+    ],
+  });
 }
