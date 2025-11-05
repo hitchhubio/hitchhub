@@ -21,6 +21,7 @@
     "@aaos/deepmerge": "^0.4.0",
     "@hitchhub/token-builder": "workspace:*",
     "@hitchhub/tokens": "workspace:*",
+    "@hitchhub/ts-config": "workspace:*",
     "fs-extra": "^11.3.0",
     "glob": "^11.0.2",
     "json-schema-to-typescript": "^15.0.4",
@@ -29,7 +30,6 @@
   "devDependencies": {
     "@aaos/eslint-config": "^0.4.0",
     "@aaos/prettier-config": "^0.1.4",
-    "@tsconfig/node20": "^20.1.5",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.15.21",
     "eslint": "^9.27.0",

@@ -31,7 +31,7 @@
   "license": "MIT",
   "devDependencies": {
     "@hitchhub/theme-builder": "workspace:*",
-    "@tsconfig/node20": "^20.1.5",
+    "@hitchhub/ts-config": "workspace:*",
     "eslint": "~9.27.0",
     "prettier": "^3.5.3",
     "tsup": "^8.5.0",

@@ -30,7 +30,7 @@
     "@aaos/prettier-config": "^0.1.4",
     "@hitchhub/token-builder": "workspace:*",
     "@hitchhub/token-utils": "workspace:*",
-    "@tsconfig/node20": "^20.1.5",
+    "@hitchhub/ts-config": "workspace:*",
     "@types/color": "^4.2.0",
     "@types/lodash": "^4.17.17",
     "eslint": "^9.27.0",

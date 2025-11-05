@@ -1,7 +1,10 @@
-import { z } from 'zod';
-import { createAliasSchema, createTokenSchema } from '../shared.js';
+import {
+  createZodSchema,
+  createAliasSchema,
+  createTokenSchema,
+} from '../shared';
 
-function createTypographySchema(name: string) {
+function createTypographyValueSchema(name: string) {
   return createTokenSchema({
     type: 'typography',
     valueSchema: createAliasSchema(name),
@@ -9,63 +12,27 @@ function createTypographySchema(name: string) {
   });
 }
 
-function createResponsiveHeadingSchema() {
-  return z
-    .object(
-      {
-        xl: createTypographySchema('xl'),
-        lg: createTypographySchema('lg'),
-        md: createTypographySchema('md'),
-        sm: createTypographySchema('sm'),
-        xs: createTypographySchema('xs'),
-        ['2xs']: createTypographySchema('2xs'),
-      },
-      {
-        required_error: 'heading is required.',
-      },
-    )
-    .strict();
+function createTypographySchema() {
+  return {
+    caption: null,
+    button: null,
+    input: null,
+    label: null,
+    display: ['md'],
+    heading: ['2xs', 'xs', 'sm', 'md', 'lg', 'xl'],
+    body: ['sm', 'md', 'lg'],
+  };
 }
 
-function createResponsiveTextSchema() {
-  return z
-    .object(
-      {
-        lg: createTypographySchema('lg'),
-        md: createTypographySchema('md'),
-        sm: createTypographySchema('sm'),
-      },
-      {
-        required_error: 'text is required.',
-      },
-    )
-    .strict();
-}
-
-function createResponsiveTypographySchema(name: string) {
-  return z
-    .object(
-      {
-        heading: createResponsiveHeadingSchema(),
-        text: createResponsiveTextSchema(),
-      },
-      {
-        required_error: `${name} is required.`,
-      },
-    )
-    .strict();
-}
-
-export const typographySchema = z
-  .object(
-    {
-      default: createResponsiveTypographySchema('default'),
-      xs: createResponsiveTypographySchema('xs'),
-      md: createResponsiveTypographySchema('md'),
-      xl: createResponsiveTypographySchema('xl'),
-    },
-    {
-      required_error: 'typography is required.',
-    },
-  )
-  .strict();
+export const typographySchema = createZodSchema({
+  name: 'typography',
+  schema: {
+    default: createTypographySchema(),
+    xs: createTypographySchema(),
+    md: createTypographySchema(),
+    xl: createTypographySchema(),
+  },
+  transform: ({ value }) => {
+    return createTypographyValueSchema(value);
+  },
+});

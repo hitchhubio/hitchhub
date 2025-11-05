@@ -1,19 +1,21 @@
 import {
   createZodSchema,
-  createPixelSchema,
+  createAliasSchema,
   createTokenSchema,
 } from '../shared';
 
 export const borderSchema = createZodSchema({
   name: 'border',
   schema: {
-    width: ['100', '200', '300', '400', '500', '600', '700', '800'],
-    radius: ['100', '200', '300', '400', '500', '600', 'full'],
+    form: {
+      width: ['default', 'invalid'],
+      radius: ['default'],
+    },
   },
   transform: ({ value }) => {
     return createTokenSchema({
       type: 'dimension',
-      valueSchema: createPixelSchema(value),
+      valueSchema: createAliasSchema(value),
       name: value,
     });
   },

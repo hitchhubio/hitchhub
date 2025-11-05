@@ -44,10 +44,10 @@
   "devDependencies": {
     "@aaos/eslint-config": "^0.4.0",
     "@aaos/prettier-config": "^0.1.4",
+    "@hitchhub/ts-config": "workspace:*",
     "@storybook/react": "^8.6.14",
     "@storybook/test": "^8.6.14",
     "@tailwindcss/cli": "^4.1.16",
-    "@tsconfig/node20": "^20.1.5",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
     "@vitejs/plugin-react": "^4.5.0",

@@ -197,3 +197,56 @@ export function createPlatformDtcg({
     }),
   };
 }
+
+export function createPlatformTailwindTheme({
+  prefix,
+  outputFolder,
+  outputFilename,
+}: {
+  prefix?: string;
+  outputFolder: string;
+  outputFilename: string;
+}) {
+  return {
+    id: 'tailwindTheme',
+    configure: () => ({
+      transformGroup: 'css/custom',
+      buildPath: ensureTrailingSlash(outputFolder),
+      prefix,
+      files: [
+        {
+          format: 'tailwind/theme',
+          destination: outputFilename,
+        },
+      ],
+      options: {
+        outputReferences: true,
+      },
+    }),
+  };
+}
+
+export function createPlatformFigma({
+  outputFolder,
+  outputFilename,
+}: {
+  outputFolder: string;
+  outputFilename: string;
+}) {
+  return {
+    id: 'figma',
+    configure: () => ({
+      transformGroup: 'figma',
+      buildPath: ensureTrailingSlash(outputFolder),
+      files: [
+        {
+          format: 'figma',
+          destination: outputFilename,
+        },
+      ],
+      options: {
+        outputReferences: true,
+      },
+    }),
+  };
+}

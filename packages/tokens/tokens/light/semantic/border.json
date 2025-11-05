@@ -1,0 +1,24 @@
+{
+  "semantic": {
+    "border": {
+      "form": {
+        "width": {
+          "default": {
+            "$type": "dimension",
+            "$value": "{primitive.border.width.100}"
+          },
+          "invalid": {
+            "$type": "dimension",
+            "$value": "{primitive.border.width.200}"
+          }
+        },
+        "radius": {
+          "default": {
+            "$type": "dimension",
+            "$value": "{primitive.border.radius.200}"
+          }
+        }
+      }
+    }
+  }
+}

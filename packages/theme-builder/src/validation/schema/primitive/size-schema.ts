@@ -1,24 +1,17 @@
-import { z } from 'zod';
-import { createPixelSchema, createTokenSchema } from '../shared.js';
+import {
+  createZodSchema,
+  createPixelSchema,
+  createTokenSchema,
+} from '../shared';
 
-function createSizeSchema(name: string) {
-  return createTokenSchema({
-    type: 'dimension',
-    valueSchema: createPixelSchema('size'),
-    name,
-  });
-}
-
-export const sizeSchema = z
-  .object(
-    {
-      sm: createSizeSchema('sm'),
-      md: createSizeSchema('md'),
-      lg: createSizeSchema('lg'),
-      xl: createSizeSchema('xl'),
-    },
-    {
-      required_error: 'size is required.',
-    },
-  )
-  .strict();
+export const sizeSchema = createZodSchema({
+  name: 'size',
+  values: ['sm', 'md', 'lg', 'xl'],
+  transform: ({ value }) => {
+    return createTokenSchema({
+      type: 'dimension',
+      valueSchema: createPixelSchema(value),
+      name: value,
+    });
+  },
+});
