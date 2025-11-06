@@ -16,7 +16,7 @@
     "format": "nx run-many --target=format",
     "format:check": "nx run-many --target=format:check",
     "storybook": "nx run @hitchhub-react/ds:watch & nx run @hitchhub/storybook:dev",
-    "storybook:build": "nx run @hitchhub/storybook:build"
+    "storybook:build": "nx run @hitchhub-react/ds:storybook:build"
   },
   "devDependencies": {
     "@nx/devkit": "21.1.2",
