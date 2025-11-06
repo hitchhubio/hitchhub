@@ -9,7 +9,8 @@
     ".": "./dist/index.js",
     "./theme.css": "./dist/theme.css",
     "./light.css": "./dist/light.css",
-    "./dark.css": "./dist/dark.css"
+    "./dark.css": "./dist/dark.css",
+    "./tailwind.css": "./dist/tailwind.css"
   },
   "publishConfig": {
     "access": "public"
