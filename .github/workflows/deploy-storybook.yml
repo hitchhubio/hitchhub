@@ -23,18 +23,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Extract Node.js version from package.json
+        id: node_version
+        run: echo "NODE_VERSION=$(jq -r .engines.node package.json)" >> $GITHUB_ENV
+        shell: bash
+
+      - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: pnpm
+          node-version: ${{ env.NODE_VERSION }}
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 9
       - name: Install deps
-        run: pnpm install --frozen-lockfile
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile --ignore-scripts
 
       - name: Build Storybook
         run: |
