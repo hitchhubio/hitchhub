@@ -22,9 +22,9 @@
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "build": "pnpm build:ts && pnpm build:styles",
     "build:ts": "tsup",
-    "build:styles": "pnpm tailwindcss -i ./styles.css -o ./dist/styles.css",
+    "build:styles": "pnpm dlx @tailwindcss/cli -i ./src/styles.css -o ./dist/styles.css --minify",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook:build": "storybook build"
   },
   "prettier": "@aaos/prettier-config",
   "sideEffects": [
