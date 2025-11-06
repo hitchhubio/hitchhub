@@ -1,7 +1,25 @@
-# HitchHub
+# 🚧 HitchHub (Work in Progress)
 
 HitchHub is a modern, token-driven design system built to create consistency, accessibility, and agility across digital products.
 It provides a unified source of truth for design decisions — from tokens to components — enabling scalable, maintainable front-end architecture.
+
+### ✅ Current Features
+
+- 🔹 DTCG-compliant design tokens (`color`, `spacing`, `typography`, `motion`)
+- 🔹 Automated token builds via **Style Dictionary**
+- 🔹 **Tailwind** integration with generated theme configuration
+- 🔹 **Figma token export** for visual design parity
+- 🔹 **React component architecture** with semantic tokens
+- 🔹 Accessible, theme-aware primitives (light/dark mode support)
+
+### 🧩 Upcoming / In Progress
+
+- [ ] CI/CD workflow for versioned package releases
+- [ ] Box implemenation for token usage discovery
+- [ ] Component library expansion  
+- [ ] Theming system with brand variants  
+- [ ] Testing coverage (Vitest + Playwright)  
+- [ ] Documentation site
 
 ## Overview
 
