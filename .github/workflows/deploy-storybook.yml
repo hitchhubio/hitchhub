@@ -1,0 +1,57 @@
+name: Deploy Storybook to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extract Node.js version from package.json
+        id: node_version
+        run: echo "NODE_VERSION=$(jq -r .engines.node package.json)" >> $GITHUB_ENV
+        shell: bash
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install deps
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile --ignore-scripts
+
+      - name: Build Storybook
+        run: |
+          pnpm storybook:build --output-dir storybook-static
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: packages/react/storybook-static
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

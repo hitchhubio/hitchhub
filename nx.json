@@ -21,6 +21,14 @@
     "test": {
       "inputs": ["default", "^nonTest"]
     },
+    "storybook": {
+      "inputs": ["default", "^nonTest", "sharedGlobals"],
+      "dependsOn": ["^build"]
+    },
+    "storybook:build": {
+      "inputs": ["default", "^nonTest", "sharedGlobals"],
+      "dependsOn": ["^build"]
+    },
     "version": {
       "dependsOn": ["^version"]
     }

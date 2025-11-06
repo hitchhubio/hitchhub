@@ -41,7 +41,9 @@
     "react-dom": "*"
   },
   "dependencies": {
-    "@hitchhub/tokens": "workspace:*"
+    "@hitchhub/tokens": "workspace:*",
+    "tailwind-merge": "^3.3.1",
+    "tailwind-variants": "^3.1.1"
   },
   "devDependencies": {
     "@aaos/eslint-config": "^0.4.0",
