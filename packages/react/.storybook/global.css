@@ -1,0 +1,11 @@
+@import '@hitchhub/theme-default/theme.css';
+@import '@hitchhub/theme-default/tailwind.css';
+
+@source "../src/**/*.{ts,tsx,js,jsx}";
+
+html,
+body,
+#storybook-root {
+  min-height: 100%;
+  margin: 0;
+}
