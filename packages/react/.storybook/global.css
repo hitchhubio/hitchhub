@@ -1,7 +1,3 @@
-@import '@hitchhub/theme-default/theme.css';
-@import '@hitchhub/theme-default/tailwind.css';
-@import '@hitchhub-react/ds/styles.css';
-
 html,
 body,
 #storybook-root {
