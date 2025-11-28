@@ -20,6 +20,7 @@
     "format": "prettier 'src/**/*.{ts,tsx}' --write",
     "format:check": "prettier 'src/**/*.{ts,tsx}' --check",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "types:check": "tsc -b --noEmit --incremental",
     "build": "pnpm build:ts && pnpm build:styles",
     "build:ts": "tsup",
     "build:styles": "pnpm dlx @tailwindcss/cli -i ./src/styles.css -o ./dist/styles.css --minify",

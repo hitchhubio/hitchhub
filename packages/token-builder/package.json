@@ -8,6 +8,7 @@
     "format": "prettier 'src/**/*.ts' --write",
     "format:check": "prettier 'src/**/*.ts' --check",
     "lint": "eslint 'src/**/*.ts'",
+    "types:check": "tsc -b --noEmit --incremental",
     "build": "tsup",
     "test": "vitest run",
     "test:watch": "vitest"

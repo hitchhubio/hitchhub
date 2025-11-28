@@ -16,6 +16,7 @@
     "format": "prettier 'src/**/*.{ts,json}' --write",
     "format:check": "prettier 'src/**/*.{ts,json}' --check",
     "lint": "eslint 'src/**/*.{ts,json}'",
+    "types:check": "tsc -b --noEmit --incremental",
     "build": "pnpm build:tokens && pnpm build:source",
     "build:tokens": "tsx scripts/build.ts",
     "build:source": "tsup"

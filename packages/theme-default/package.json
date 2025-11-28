@@ -22,6 +22,7 @@
     "format": "prettier 'src/**/*.ts' --write",
     "format:check": "prettier 'src/**/*.ts' --check",
     "lint": "eslint 'src/**/*.ts'",
+    "types:check": "tsc -b --noEmit --incremental",
     "build": "pnpm build:tokens && pnpm build:source",
     "build:tokens": "tsx scripts/build.ts",
     "build:source": "tsup"
