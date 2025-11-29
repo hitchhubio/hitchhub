@@ -31,13 +31,13 @@ jobs:
       - name: Set Nx SHAs
         uses: nrwl/nx-set-shas@v4
 
-      - name: Install node_modules
+      - name: Install
         run: |
           corepack enable
           pnpm install --frozen-lockfile --ignore-scripts
         shell: bash
 
-      - name: Set environment variables 🔧
+      - name: Set environment variables
         run: |
           echo "BASE=${{ inputs.base }}" >> $GITHUB_ENV
           echo "HEAD=${{ inputs.head }}" >> $GITHUB_ENV

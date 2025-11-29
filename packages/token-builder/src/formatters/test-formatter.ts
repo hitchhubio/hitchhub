@@ -1,7 +1,20 @@
-import cloneDeepWith from 'lodash/cloneDeepWith.js';
-import type { Dictionary, TransformedToken } from 'style-dictionary';
+import cloneDeepWith from 'lodash/cloneDeepWith';
+import type {
+  Dictionary,
+  PlatformConfig,
+  TransformedToken,
+  TransformedTokens,
+} from 'style-dictionary';
 import type { DesignToken, FormatFnArguments } from 'style-dictionary/types';
 import { fileHeader } from 'style-dictionary/utils';
+
+export type TestTokenAttributes = {
+  category?: string;
+  type?: string;
+  item?: string;
+  subItem?: string;
+  state?: string;
+};
 
 export type TestToken = {
   name?: string;
@@ -9,6 +22,12 @@ export type TestToken = {
   description?: string;
   comment?: string;
   value: unknown;
+  original?: Omit<TestToken, 'original'>;
+  attributes?: TestTokenAttributes;
+};
+
+export type TestTokens = {
+  [key: string]: TestTokens | TestToken;
 };
 
 export type TransformedTestTokens = {
@@ -29,7 +48,7 @@ function toDesignToken(token: TestToken): DesignToken & { name: string } {
     $description: token.description,
     comment: token.comment,
     themeable: true,
-    attributes: {},
+    attributes: token.attributes,
   };
 }
 
@@ -37,26 +56,48 @@ function toTransformedToken(token: TestToken): TransformedToken {
   return {
     ...toDesignToken(token),
     path: token.name ? token.name.split('.') : [],
-    original: toDesignToken(token),
+    original: token.original
+      ? toDesignToken(token.original)
+      : toDesignToken(token),
     filePath: 'file.json',
     isSource: true,
   };
 }
 
+function isTestToken(token: unknown): token is TestToken {
+  return token != null && typeof token === 'object' && 'type' in token;
+}
+
+function convertTestTokensToTransformedTokens(
+  tokens: TestTokens,
+): TransformedTokens {
+  return Object.fromEntries(
+    Object.entries(tokens).map(([key, value]) => {
+      return isTestToken(value)
+        ? [key, toTransformedToken(value)]
+        : [key, convertTestTokensToTransformedTokens(value as TestTokens)];
+    }),
+  );
+}
+
 export function testFormatter({
   formatter,
+  platformConfig,
 }: {
   formatter: (formatArguments: FormatFnArguments) => Promise<string>;
+  platformConfig?: PlatformConfig;
 }) {
   const fileName = 'file.ts';
 
   async function format({
     tokens,
     allTokens,
+    unfilteredTokens,
     options,
   }: {
     tokens?: TransformedTestTokens;
     allTokens?: TestToken[];
+    unfilteredTokens?: TestTokens;
     options?: FormatterOptions;
   }) {
     const dictionary: Dictionary = {
@@ -68,12 +109,15 @@ export function testFormatter({
           })
         : {},
       allTokens: (allTokens ?? []).map((token) => toTransformedToken(token)),
+      unfilteredTokens: unfilteredTokens
+        ? convertTestTokensToTransformedTokens(unfilteredTokens)
+        : undefined,
       tokenMap: new Map<string, TransformedToken>(),
     };
 
     return formatter({
       dictionary,
-      platform: {},
+      platform: platformConfig ?? {},
       options: options ?? {},
       file: {
         destination: fileName,
@@ -84,25 +128,34 @@ export function testFormatter({
   async function formatString({
     tokens,
     allTokens,
+    unfilteredTokens,
     options,
   }: {
     tokens?: TransformedTestTokens;
     allTokens?: TestToken[];
+    unfilteredTokens?: TestTokens;
     options?: FormatterOptions;
   }) {
-    return await format({ tokens, allTokens, options });
+    return await format({ tokens, allTokens, unfilteredTokens, options });
   }
 
   async function formatArray({
     tokens,
     allTokens,
+    unfilteredTokens,
     options,
   }: {
     tokens?: TransformedTestTokens;
     allTokens?: TestToken[];
+    unfilteredTokens?: TestTokens;
     options?: FormatterOptions;
   }) {
-    const formatted = await format({ tokens, allTokens, options });
+    const formatted = await format({
+      tokens,
+      allTokens,
+      unfilteredTokens,
+      options,
+    });
     return formatted.split('\n');
   }
 
@@ -110,14 +163,21 @@ export function testFormatter({
     exportName,
     tokens,
     allTokens,
+    unfilteredTokens,
     options,
   }: {
     exportName?: string;
     tokens?: TransformedTestTokens;
     allTokens?: TestToken[];
+    unfilteredTokens?: TestTokens;
     options?: FormatterOptions;
   }) {
-    const formatted = await format({ tokens, allTokens, options });
+    const formatted = await format({
+      tokens,
+      allTokens,
+      unfilteredTokens,
+      options,
+    });
     const header = await fileHeader({ file: { destination: fileName } });
 
     let value = formatted.replace(header, '').replace(';', '');
