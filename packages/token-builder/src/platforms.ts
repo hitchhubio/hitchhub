@@ -1,4 +1,4 @@
-import { TokenBuilderPlatform } from './token-builder.js';
+import type { TokenBuilderPlatform } from './token-builder.js';
 
 function ensureTrailingSlash(path: string) {
   if (!path) {

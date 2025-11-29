@@ -1,6 +1,6 @@
 import cloneDeepWith from 'lodash/cloneDeepWith.js';
-import { Dictionary, TransformedToken } from 'style-dictionary';
-import { DesignToken, FormatFnArguments } from 'style-dictionary/types';
+import type { Dictionary, TransformedToken } from 'style-dictionary';
+import type { DesignToken, FormatFnArguments } from 'style-dictionary/types';
 import { fileHeader } from 'style-dictionary/utils';
 
 export type TestToken = {
@@ -68,6 +68,7 @@ export function testFormatter({
           })
         : {},
       allTokens: (allTokens ?? []).map((token) => toTransformedToken(token)),
+      tokenMap: new Map<string, TransformedToken>(),
     };
 
     return formatter({

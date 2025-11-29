@@ -23,16 +23,16 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "ts-extras": "^0.14.0"
+    "ts-extras": "^0.16.0"
   },
   "devDependencies": {
-    "@aaos/eslint-config": "^0.4.0",
-    "@aaos/prettier-config": "^0.1.4",
+    "@aaos/eslint-config": "0.5.0",
+    "@aaos/prettier-config": "0.5.0",
     "@types/lodash": "^4.17.17",
-    "eslint": "^9.27.0",
+    "eslint": "^9.39.1",
     "prettier": "^3.5.3",
     "tsup": "^8.5.0",
-    "typescript": "5.8.3",
-    "vitest": "^3.1.4"
+    "typescript": "5.9.3",
+    "vitest": "^4.0.14"
   }
 }
