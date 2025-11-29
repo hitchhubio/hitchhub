@@ -13,7 +13,7 @@ export function createTokenSchema({
     .object(
       {
         $type: z.literal(type, {
-          errorMap: () => ({
+          error: () => ({
             message: `Invalid literal value, expected "${type}".`,
           }),
         }),

@@ -13,6 +13,7 @@
     "build": "nx run-many --target=build",
     "build:libs": "nx run-many --target=build --all --exclude=tag:type:app",
     "lint": "nx run-many --target=lint",
+    "types:check": "nx run-many --target=types:check",
     "format": "nx run-many --target=format",
     "format:check": "nx run-many --target=format:check",
     "storybook": "nx run @hitchhub-react/ds:watch & nx run @hitchhub/storybook:dev",
