@@ -8,6 +8,7 @@
     "format": "prettier 'src/**/*.ts' --write",
     "format:check": "prettier 'src/**/*.ts' --check",
     "lint": "eslint 'src/**/*.ts'",
+    "types:check": "tsc -b --noEmit --incremental",
     "build": "tsup",
     "test": "vitest run",
     "test:watch": "vitest"
@@ -20,23 +21,23 @@
     "access": "public"
   },
   "dependencies": {
-    "camelcase": "^8.0.0",
+    "camelcase": "^9.0.0",
     "lodash": "^4.17.21",
-    "style-dictionary": "5.0.0",
-    "ts-extras": "^0.14.0"
+    "style-dictionary": "5.1.1",
+    "ts-extras": "^0.16.0"
   },
   "devDependencies": {
-    "@aaos/eslint-config": "^0.4.0",
-    "@aaos/prettier-config": "^0.1.4",
+    "@aaos/eslint-config": "0.5.0",
+    "@aaos/prettier-config": "0.5.0",
     "@hitchhub/token-builder": "workspace:*",
     "@hitchhub/token-utils": "workspace:*",
     "@hitchhub/ts-config": "workspace:*",
     "@types/color": "^4.2.0",
     "@types/lodash": "^4.17.17",
-    "eslint": "^9.27.0",
+    "eslint": "^9.39.1",
     "prettier": "^3.5.3",
     "tsup": "^8.5.0",
-    "typescript": "5.8.3",
-    "vitest": "^3.1.4"
+    "typescript": "5.9.3",
+    "vitest": "^4.0.14"
   }
 }

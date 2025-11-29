@@ -1,16 +1,15 @@
 import { promises as fs } from 'node:fs';
+import type { TokenBuilderPlatform } from '@hitchhub/token-builder';
 import {
   buildTokens,
   createPlatformCss,
   createPlatformTailwindTheme,
   createPlatformTypeScript,
   createPlatformTypeScriptConsts,
-  TokenBuilderPlatform,
 } from '@hitchhub/token-builder';
 import { meta } from '@hitchhub/tokens';
 import { outputFile } from 'fs-extra';
 import { compile } from 'json-schema-to-typescript';
-import { ZodTypeAny } from 'zod';
 import { zodToJsonSchema } from 'zod-to-json-schema';
 import { tokensUnresolvedSchema } from './validation/schema/index.js';
 import { validateDesignTokensSchema } from './validation/validate-schema.js';
@@ -24,13 +23,12 @@ async function validateAndBuildTokens({
   tokens?: any;
   platforms: TokenBuilderPlatform[];
 }) {
-  validateDesignTokensSchema({ source, tokens });
-
+  await validateDesignTokensSchema({ source, tokens });
   await buildTokens({ source, tokens, platforms });
 }
 
 async function convertZodSchemaToTypeScriptString(
-  schema: ZodTypeAny,
+  schema: any, // TODO: type
 ): Promise<string> {
   const jsonSchema = zodToJsonSchema(schema, {
     $refStrategy: 'none',

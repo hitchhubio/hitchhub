@@ -16,6 +16,7 @@
     "format": "prettier 'src/**/*.{ts,json}' --write",
     "format:check": "prettier 'src/**/*.{ts,json}' --check",
     "lint": "eslint 'src/**/*.{ts,json}'",
+    "types:check": "tsc -b --noEmit --incremental",
     "build": "pnpm build:tokens && pnpm build:source",
     "build:tokens": "tsx scripts/build.ts",
     "build:source": "tsup"
@@ -24,13 +25,14 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@aaos/eslint-config": "^0.4.0",
-    "@aaos/prettier-config": "^0.1.4",
+    "@aaos/eslint-config": "0.5.0",
+    "@aaos/prettier-config": "0.5.0",
     "@hitchhub/token-builder": "workspace:*",
-    "eslint": "^9.27.0",
+    "@hitchhub/ts-config": "workspace:*",
+    "eslint": "^9.39.1",
     "prettier": "^3.5.3",
     "tsup": "^8.5.0",
     "tsx": "^4.19.4",
-    "typescript": "5.8.3"
+    "typescript": "5.9.3"
   }
 }

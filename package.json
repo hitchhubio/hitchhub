@@ -13,14 +13,16 @@
     "build": "nx run-many --target=build",
     "build:libs": "nx run-many --target=build --all --exclude=tag:type:app",
     "lint": "nx run-many --target=lint",
+    "types:check": "nx run-many --target=types:check",
     "format": "nx run-many --target=format",
     "format:check": "nx run-many --target=format:check",
     "storybook": "nx run @hitchhub-react/ds:watch & nx run @hitchhub/storybook:dev",
-    "storybook:build": "nx run @hitchhub-react/ds:storybook:build"
+    "storybook:build": "nx run @hitchhub-react/ds:storybook:build",
+    "update:dependencies": "pnpm update --latest --recursive --interactive"
   },
   "devDependencies": {
-    "@nx/devkit": "21.1.2",
-    "@nx/js": "^21.1.2",
-    "nx": "21.1.2"
+    "@nx/devkit": "22.1.3",
+    "@nx/js": "^22.1.3",
+    "nx": "22.1.3"
   }
 }

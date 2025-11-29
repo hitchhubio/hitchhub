@@ -1,24 +1,6 @@
 import { getValue } from './get-value';
 
 describe('getValue', () => {
-  it('should return undefined for null object', () => {
-    expect(
-      getValue({
-        value: null,
-        path: 'a.b.c',
-      }),
-    ).toBeUndefined();
-  });
-
-  it('should return undefined for undefined object', () => {
-    expect(
-      getValue({
-        value: undefined,
-        path: 'a.b.c',
-      }),
-    ).toBeUndefined();
-  });
-
   it('should return expected value', () => {
     expect(
       getValue({

@@ -69,12 +69,9 @@ export function createZodSchema({
     );
   }
 
-  const rootShape: Record<string, ZodTypeAny> = {};
-
-  Object.assign(
-    rootShape,
-    schema ? (walk(schema) as z.ZodObject<z.ZodRawShape>).shape : {},
-  );
+  const rootShape = {
+    ...(schema ? (walk(schema) as z.ZodObject<z.ZodRawShape>).shape : {}),
+  };
 
   if (values?.length) {
     for (const value of values) {

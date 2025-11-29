@@ -20,6 +20,7 @@
     "format": "prettier 'src/**/*.{ts,tsx}' --write",
     "format:check": "prettier 'src/**/*.{ts,tsx}' --check",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "types:check": "tsc -b --noEmit --incremental",
     "build": "pnpm build:ts && pnpm build:styles",
     "build:ts": "tsup",
     "build:styles": "pnpm dlx @tailwindcss/cli -i ./src/styles.css -o ./dist/styles.css --minify",
@@ -46,8 +47,8 @@
     "tailwind-variants": "^3.1.1"
   },
   "devDependencies": {
-    "@aaos/eslint-config": "^0.4.0",
-    "@aaos/prettier-config": "^0.1.4",
+    "@aaos/eslint-config": "0.5.0",
+    "@aaos/prettier-config": "0.5.0",
     "@hitchhub/theme-default": "workspace:*",
     "@hitchhub/ts-config": "workspace:*",
     "@storybook/addon-docs": "^10.0.5",
@@ -57,8 +58,8 @@
     "@tailwindcss/postcss": "^4.1.16",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
-    "@vitejs/plugin-react": "^4.5.0",
-    "eslint": "^9.27.0",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.1",
     "eslint-plugin-storybook": "^10.0.5",
     "postcss": "^8.5.6",
     "prettier": "^3.5.3",
@@ -67,7 +68,7 @@
     "storybook": "^10.0.5",
     "tailwindcss": "^4.1.7",
     "tsup": "^8.5.0",
-    "typescript": "5.8.3",
+    "typescript": "5.9.3",
     "vite-tsconfig-paths": "^5.1.4"
   }
 }

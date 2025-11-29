@@ -9,6 +9,7 @@
     "format": "prettier 'src/**/*.ts' --write",
     "format:check": "prettier 'src/**/*.ts' --check",
     "lint": "eslint 'src/**/*.ts'",
+    "types:check": "tsc -b --noEmit --incremental",
     "build": "tsup",
     "test": "vitest run",
     "test:watch": "vitest"
@@ -18,26 +19,27 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@aaos/deepmerge": "^0.4.0",
+    "@aaos/deepmerge": "0.5.0",
     "@hitchhub/token-builder": "workspace:*",
     "@hitchhub/tokens": "workspace:*",
     "@hitchhub/ts-config": "workspace:*",
     "fs-extra": "^11.3.0",
-    "glob": "^11.0.2",
+    "glob": "^13.0.0",
     "json-schema-to-typescript": "^15.0.4",
     "zod-to-json-schema": "^3.24.5"
   },
   "devDependencies": {
-    "@aaos/eslint-config": "^0.4.0",
-    "@aaos/prettier-config": "^0.1.4",
+    "@aaos/eslint-config": "0.5.0",
+    "@aaos/prettier-config": "0.5.0",
+    "@hitchhub/ts-config": "workspace:*",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^22.15.21",
-    "eslint": "^9.27.0",
+    "@types/node": "^24.10.1",
+    "eslint": "^9.39.1",
     "prettier": "^3.5.3",
     "tsup": "^8.5.0",
-    "typescript": "5.8.3",
-    "vitest": "^3.1.4",
-    "zod": "^3.25.28",
-    "zod-to-ts": "^1.2.0"
+    "typescript": "5.9.3",
+    "vitest": "^4.0.14",
+    "zod": "^4.1.13",
+    "zod-to-ts": "^2.0.0"
   }
 }
