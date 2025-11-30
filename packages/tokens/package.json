@@ -1,6 +1,6 @@
 {
   "name": "@hitchhub/tokens",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "The hitchhub design tokens.",
   "type": "module",
   "main": "dist/index.js",

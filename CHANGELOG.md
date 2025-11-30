@@ -1,3 +1,13 @@
+## 0.4.1 (2025-11-30)
+
+### 🩹 Fixes
+
+- update repos ([#20](https://github.com/hitchhubio/hitchhub/pull/20))
+
+### ❤️ Thank You
+
+- hitchhubio
+
 ## 0.4.0 (2025-11-30)
 
 ### 🚀 Features
