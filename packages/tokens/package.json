@@ -8,6 +8,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hitchhubio/hitchhub.git",
+    "directory": "packages/tokens"
+  },
   "prettier": "@aaos/prettier-config",
   "files": [
     "dist"

@@ -20,6 +20,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hitchhubio/hitchhub.git",
+    "directory": "packages/token-builder"
+  },
   "dependencies": {
     "camelcase": "^9.0.0",
     "lodash": "^4.17.21",
