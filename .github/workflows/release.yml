@@ -1,0 +1,53 @@
+name: HitchHub release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: read
+  actions: read
+
+env:
+  GITHUB_TOKEN: ${{ secrets.REPO_PAT }}
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: release
+      cancel-in-progress: true
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.REPO_PAT }}
+
+      - name: Extract Node.js version
+        id: node_version
+        run: echo "NODE_VERSION=$(jq -r .engines.node package.json)" >> $GITHUB_ENV
+        shell: bash
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile --ignore-scripts
+        shell: bash
+
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v4
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Run Nx release
+        run: |
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          pnpm nx release --skip-publish
