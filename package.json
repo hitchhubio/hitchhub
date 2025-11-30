@@ -16,7 +16,7 @@
     "types:check": "nx run-many --target=types:check",
     "format": "nx run-many --target=format",
     "format:check": "nx run-many --target=format:check",
-    "storybook": "nx run @hitchhub-react/ds:watch & nx run @hitchhub/storybook:dev",
+    "storybook": "nx run @hitchhub-react/ds:watch & nx run @hitchhub-react/ds:storybook",
     "storybook:build": "nx run @hitchhub-react/ds:storybook:build",
     "update:dependencies": "pnpm update --latest --recursive --interactive"
   },
