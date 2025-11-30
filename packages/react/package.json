@@ -16,6 +16,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hitchhubio/hitchhub.git",
+    "directory": "packages/react"
+  },
   "scripts": {
     "format": "prettier 'src/**/*.{ts,tsx}' --write",
     "format:check": "prettier 'src/**/*.{ts,tsx}' --check",
