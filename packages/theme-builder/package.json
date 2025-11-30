@@ -1,6 +1,6 @@
 {
   "name": "@hitchhub/theme-builder",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "The hitchhub theme builder.",
   "private": true,
   "main": "dist/index.js",

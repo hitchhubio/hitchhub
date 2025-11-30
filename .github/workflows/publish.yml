@@ -1,0 +1,52 @@
+name: HitchHub publish
+
+on:
+  release:
+    types:
+      - created
+
+permissions:
+  contents: write
+  pull-requests: read
+  actions: read
+  packages: write
+  attestations: write
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Extract Node.js version
+        id: node_version
+        run: echo "NODE_VERSION=$(jq -r .engines.node package.json)" >> $GITHUB_ENV
+        shell: bash
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile --ignore-scripts
+        shell: bash
+
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v4
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Publish packages
+        run: |
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          pnpm nx release publish
