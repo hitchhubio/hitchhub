@@ -21,6 +21,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hitchhubio/hitchhub.git",
+    "directory": "packages/token-utils"
+  },
   "dependencies": {
     "lodash": "^4.17.21",
     "ts-extras": "^0.16.0"
