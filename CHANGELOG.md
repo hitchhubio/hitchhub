@@ -1,3 +1,13 @@
+## 0.5.1 (2025-11-30)
+
+### 🩹 Fixes
+
+- update ds repo ([#22](https://github.com/hitchhubio/hitchhub/pull/22))
+
+### ❤️ Thank You
+
+- hitchhubio
+
 ## 0.5.0 (2025-11-30)
 
 ### 🚀 Features
