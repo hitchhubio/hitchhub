@@ -1,3 +1,13 @@
+## 0.5.0 (2025-11-30)
+
+### 🚀 Features
+
+- add footer ([#21](https://github.com/hitchhubio/hitchhub/pull/21))
+
+### ❤️ Thank You
+
+- hitchhubio
+
 ## 0.4.1 (2025-11-30)
 
 ### 🩹 Fixes
