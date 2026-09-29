@@ -1,4 +1,0 @@
-{
-  "extends": "@hitchhub/ts-config/tsconfig.json",
-  "compilerOptions": { "jsx": "react-jsx", "types": ["vitest/globals"] }
-}

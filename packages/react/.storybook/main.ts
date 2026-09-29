@@ -1,21 +1,13 @@
 import type { StorybookConfig } from '@storybook/react-vite';
-import tsconfigPaths from 'vite-tsconfig-paths';
+import tailwindcss from '@tailwindcss/vite';
 
 const config: StorybookConfig = {
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: ['../src/**/*.stories.@(ts|tsx)'],
   addons: ['@storybook/addon-docs'],
-  framework: {
-    name: '@storybook/react-vite',
-    options: {},
-  },
-  viteFinal: async (config) => {
-    if (!config?.plugins) {
-      return config;
-    }
-
-    config.plugins.push(tsconfigPaths());
-    return config;
-  },
+  framework: { name: '@storybook/react-vite', options: {} },
+  viteFinal: async (viteConfig) => ({
+    ...viteConfig,
+    plugins: [...(viteConfig.plugins ?? []), tailwindcss()],
+  }),
 };
-
 export default config;
