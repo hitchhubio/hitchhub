@@ -62,7 +62,7 @@ export type TokenManifestEntry<Path extends string = string> = {
   resolvedValue: unknown;
   cssVariable?: string;
   sourcePath?: string;
-}
+};
 
 export type StyleRelationship<TokenName extends string = string> = {
   property: StyleProperty;
@@ -71,7 +71,7 @@ export type StyleRelationship<TokenName extends string = string> = {
   value: unknown;
   resolvedValue: unknown;
   representation: string;
-}
+};
 
 export type PartMeta<
   Component extends string = string,
@@ -82,7 +82,7 @@ export type PartMeta<
   component: Component;
   part: Part;
   relationships: readonly StyleRelationship<TokenName>[];
-}
+};
 
 export type ComponentMeta<
   Component extends string = string,
@@ -91,7 +91,7 @@ export type ComponentMeta<
 > = {
   component: Component;
   parts: Readonly<Record<Part, PartMeta<Component, Part, TokenName>>>;
-}
+};
 
 export type InstrumentationAttributes = Readonly<Record<'data-hh-id', string>>;
 
@@ -105,7 +105,7 @@ export type HitchPart<
   readonly attributes:
     | InstrumentationAttributes
     | Readonly<Record<string, never>>;
-}
+};
 
 export type HitchComponent<
   Component extends string,
@@ -129,9 +129,9 @@ export type AdapterContext = {
   property: StyleProperty;
   token: string;
   manifestToken: TokenManifestEntry;
-}
+};
 
 export type StylingAdapter = {
   readonly name: string;
   resolve(context: AdapterContext): string | readonly string[];
-}
+};

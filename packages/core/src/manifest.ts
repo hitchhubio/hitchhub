@@ -9,8 +9,9 @@ function isRecord(value: unknown): value is DtcgNode {
 function publicPath(path: readonly string[]): string {
   const [tier, ...rest] = path;
 
-  if (tier === 'semantic' && rest[0] === 'color')
-    {return rest.slice(1).join('.');}
+  if (tier === 'semantic' && rest[0] === 'color') {
+    return rest.slice(1).join('.');
+  }
   if (tier === 'primitive' || tier === 'semantic' || tier === 'component') {
     return rest.join('.');
   }
@@ -21,7 +22,9 @@ function publicPath(path: readonly string[]): string {
 function getAtPath(value: unknown, path: readonly string[]): unknown {
   let current = value;
   for (const segment of path) {
-    if (!isRecord(current)) {return undefined;}
+    if (!isRecord(current)) {
+      return undefined;
+    }
     current = current[segment];
   }
   return isRecord(current) && '$value' in current ? current.$value : undefined;
@@ -39,12 +42,15 @@ export function createTokenManifest(
     path: string[],
     inheritedType?: TokenType,
   ): void {
-    if (!isRecord(node)) {return;}
+    if (!isRecord(node)) {
+      return;
+    }
     const type = (node.$type as TokenType | undefined) ?? inheritedType;
 
     if ('$value' in node) {
-      if (!type)
-        {throw new Error(`Token '${path.join('.')}' has no DTCG $type.`);}
+      if (!type) {
+        throw new Error(`Token '${path.join('.')}' has no DTCG $type.`);
+      }
       const normalized = publicPath(path);
       manifest.push({
         path: normalized,
@@ -62,7 +68,9 @@ export function createTokenManifest(
     }
 
     for (const [key, child] of Object.entries(node)) {
-      if (!key.startsWith('$')) {visit(child, [...path, key], type);}
+      if (!key.startsWith('$')) {
+        visit(child, [...path, key], type);
+      }
     }
   }
 
@@ -75,8 +83,9 @@ export function indexTokenManifest(
 ): ReadonlyMap<string, TokenManifestEntry> {
   const index = new Map<string, TokenManifestEntry>();
   for (const token of manifest) {
-    if (index.has(token.path))
-      {throw new Error(`Duplicate token path '${token.path}'.`);}
+    if (index.has(token.path)) {
+      throw new Error(`Duplicate token path '${token.path}'.`);
+    }
     index.set(token.path, token);
   }
   return index;

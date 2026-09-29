@@ -11,13 +11,13 @@ export type CoverageItem = {
   token: string;
   status: CoverageStatus;
   message?: string;
-}
+};
 
 export type CoverageReport = {
   items: readonly CoverageItem[];
   valid: boolean;
   summary: { total: number; covered: number; errors: number };
-}
+};
 
 export function createCoverageReport(
   components: readonly ComponentMeta[],

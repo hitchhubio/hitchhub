@@ -49,7 +49,7 @@ export function normalizeTokenName(token: string): string {
 export type TailwindAdapterOptions = {
   /** Tailwind v4 class prefix, for example `hitch`. */
   prefix?: string;
-}
+};
 
 export function tailwind(options: TailwindAdapterOptions = {}): StylingAdapter {
   return {

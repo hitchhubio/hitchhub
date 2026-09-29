@@ -18,7 +18,7 @@ export type CreateHitchOptions<TokenName extends string = string> = {
   adapter: StylingAdapter;
   manifest: readonly TokenManifestEntry<TokenName>[];
   instrumentation?: boolean | { registry?: InstrumentationRegistry };
-}
+};
 
 function stableId(component: string, part: string): string {
   let hash = 2_166_136_261;
@@ -37,19 +37,20 @@ export function createHitch<TokenName extends string = string>({
   const tokens = indexTokenManifest(manifest);
   const enabled = Boolean(instrumentation);
   const registry = enabled
-    ? (typeof instrumentation === 'object'
+    ? typeof instrumentation === 'object'
       ? (instrumentation.registry ?? createInstrumentationRegistry())
-      : defaultInstrumentationRegistry)
+      : defaultInstrumentationRegistry
     : undefined;
   const components: ComponentMeta[] = [];
 
   function resolve(style: TokenStyle<TokenName>, location: string) {
     return Object.entries(style).map(([property, tokenName]) => {
       const token = tokens.get(tokenName);
-      if (!token)
-        {throw new Error(
+      if (!token) {
+        throw new Error(
           `${location}.${property} references unknown token '${tokenName}'.`,
-        );}
+        );
+      }
       const typedProperty = property as keyof typeof compatibleTokenTypes;
       if (!isCompatibleTokenType(typedProperty, token.type)) {
         throw new Error(
@@ -96,7 +97,9 @@ export function createHitch<TokenName extends string = string>({
         relationships,
       };
       partMetas[part] = meta;
-      if (registry) {registry.register(meta);}
+      if (registry) {
+        registry.register(meta);
+      }
       output[part] = {
         className: relationships.map((item) => item.representation).join(' '),
         meta,

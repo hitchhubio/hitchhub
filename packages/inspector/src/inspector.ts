@@ -13,7 +13,7 @@ export type InspectedToken = {
   value: unknown;
   resolvedValue: unknown;
   representation: string;
-}
+};
 
 export type ElementGeometry = {
   x: number;
@@ -24,7 +24,7 @@ export type ElementGeometry = {
   borderRadius: string;
   backgroundColor: string;
   color: string;
-}
+};
 
 export type InspectionResult = {
   id: string;
@@ -33,7 +33,7 @@ export type InspectionResult = {
   element: Element;
   tokens: readonly InspectedToken[];
   geometry: ElementGeometry;
-}
+};
 
 function pixels(value: string): number {
   return Number.parseFloat(value) || 0;
@@ -50,12 +50,18 @@ export function createInspector(options: {
     inspect(element: Element): InspectionResult | undefined {
       const target = element.closest<HTMLElement>('[data-hh-id]');
       const id = target?.dataset.hhId;
-      if (!target || !id) {return undefined;}
+      if (!target || !id) {
+        return undefined;
+      }
       const meta = registry.get(id);
-      if (!meta) {return undefined;}
+      if (!meta) {
+        return undefined;
+      }
       const rect = target.getBoundingClientRect();
       const view = target.ownerDocument.defaultView;
-      if (!view) {return undefined;}
+      if (!view) {
+        return undefined;
+      }
       const style = view.getComputedStyle(target);
       return {
         id,
