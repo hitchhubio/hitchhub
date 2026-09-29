@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from 'tsdown';
 
 export default defineConfig({
   entry: ['src/index.ts', 'src/compiler.ts'],
@@ -6,5 +6,6 @@ export default defineConfig({
   dts: true,
   sourcemap: true,
   clean: true,
-  external: ['@hitchhub/token-builder'],
+  fixedExtension: false,
+  deps: { neverBundle: ['@hitchhub/token-builder'] },
 });

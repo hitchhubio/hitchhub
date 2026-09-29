@@ -3,13 +3,13 @@
   "version": "0.5.1",
   "description": "The hitchhub collection of React components.",
   "type": "module",
-  "main": "dist/hitchhub.umd.js",
-  "module": "dist/hitchhub.esm.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/hitchhub.esm.js",
-      "require": "./dist/hitchhub.umd.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./styles.css": "./dist/styles.css"
   },
@@ -24,10 +24,10 @@
   "scripts": {
     "format": "prettier 'src/**/*.{ts,tsx}' --write",
     "format:check": "prettier 'src/**/*.{ts,tsx}' --check",
-    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "lint": "oxlint src",
     "types:check": "tsc -b --noEmit --incremental",
     "build": "pnpm build:ts && pnpm build:styles",
-    "build:ts": "tsup",
+    "build:ts": "tsdown",
     "build:styles": "pnpm dlx @tailwindcss/cli -i ./src/styles.css -o ./dist/styles.css --minify",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build"
@@ -52,7 +52,6 @@
     "tailwind-variants": "^3.1.1"
   },
   "devDependencies": {
-    "@aaos/eslint-config": "0.5.0",
     "@aaos/prettier-config": "0.5.0",
     "@hitchhub/theme-default": "workspace:*",
     "@hitchhub/ts-config": "workspace:*",
@@ -64,15 +63,12 @@
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
     "@vitejs/plugin-react": "^5.1.1",
-    "eslint": "^9.39.1",
-    "eslint-plugin-storybook": "^10.0.5",
     "postcss": "^8.5.6",
     "prettier": "^3.5.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "storybook": "^10.0.5",
     "tailwindcss": "^4.1.7",
-    "tsup": "^8.5.0",
     "typescript": "5.9.3",
     "vite-tsconfig-paths": "^5.1.4"
   }

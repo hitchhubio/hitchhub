@@ -7,7 +7,7 @@ describe('typeScriptFormatter', () => {
   });
 
   it('should throw without export option', async () => {
-    void expect(() =>
+    await expect(() =>
       formatArray({
         allTokens: [],
       }),

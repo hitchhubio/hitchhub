@@ -1,10 +1,12 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from 'tsdown';
 
 export default defineConfig({
   entry: ['src/index.ts'],
   format: ['esm'],
-  dts: true,
+  outDir: 'dist',
   sourcemap: true,
+  minify: true,
   clean: true,
-  external: ['react', 'react-dom'],
+  dts: true,
+  fixedExtension: false,
 });

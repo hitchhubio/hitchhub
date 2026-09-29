@@ -12,10 +12,10 @@
   "files": ["dist"],
   "publishConfig": { "access": "public" },
   "scripts": {
-    "build": "tsup",
+    "build": "tsdown",
     "test": "vitest run",
     "types:check": "tsc -b --noEmit --incremental",
-    "lint": "eslint 'src/**/*.ts'",
+    "lint": "oxlint src",
     "format": "prettier 'src/**/*.ts' --write",
     "format:check": "prettier 'src/**/*.ts' --check"
   },
@@ -25,12 +25,9 @@
     "@hitchhub/token-builder": "workspace:*"
   },
   "devDependencies": {
-    "@aaos/eslint-config": "0.5.0",
     "@aaos/prettier-config": "0.5.0",
     "@hitchhub/ts-config": "workspace:*",
-    "eslint": "^9.39.1",
     "prettier": "^3.5.3",
-    "tsup": "^8.5.0",
     "typescript": "5.9.3",
     "vitest": "^4.0.14"
   }
