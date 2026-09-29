@@ -4,8 +4,6 @@ import { getTokens } from './typescript-consts.js';
 
 export async function cssVariableConstsFormatter({
   dictionary,
-  platform,
-  options,
   file,
 }: FormatFnArguments) {
   const header = await fileHeader({ file });

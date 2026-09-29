@@ -1,0 +1,27 @@
+{
+  "name": "@hitchhub/core",
+  "version": "0.1.0",
+  "description": "Framework-agnostic token-aware component definitions for HitchHub.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": { ".": "./dist/index.js" },
+  "files": ["dist"],
+  "publishConfig": { "access": "public" },
+  "scripts": {
+    "build": "tsdown",
+    "test": "vitest run",
+    "types:check": "tsc -b --noEmit --incremental",
+    "lint": "oxlint src",
+    "format": "prettier 'src/**/*.ts' --write",
+    "format:check": "prettier 'src/**/*.ts' --check"
+  },
+  "prettier": "@aaos/prettier-config",
+  "devDependencies": {
+    "@aaos/prettier-config": "0.5.0",
+    "@hitchhub/ts-config": "workspace:*",
+    "prettier": "^3.5.3",
+    "typescript": "5.9.3",
+    "vitest": "^4.0.14"
+  }
+}

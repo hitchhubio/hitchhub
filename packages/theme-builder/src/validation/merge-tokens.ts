@@ -21,5 +21,6 @@ export async function mergeDesignTokens({
     }
   }
 
-  return deepmerge(mergedTokens, tokens);
+  // Theme source files intentionally override the complete base token contract.
+  return deepmerge(tokens, mergedTokens);
 }

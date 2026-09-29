@@ -1,0 +1,33 @@
+{
+  "semantic": {
+    "color": {
+      "surface": {
+        "primary": { "$type": "color", "$value": "{primitive.color.gray.900}" },
+        "secondary": { "$type": "color", "$value": "{primitive.color.gray.800}" },
+        "warning": { "$type": "color", "$value": "{primitive.color.yellow.900}" },
+        "muted": { "$type": "color", "$value": "{primitive.color.gray.700}" }
+      },
+      "text": {
+        "default": { "$type": "color", "$value": "{primitive.color.gray.50}" },
+        "muted": { "$type": "color", "$value": "{primitive.color.gray.300}" },
+        "error": { "$type": "color", "$value": "{primitive.color.red.200}" }
+      },
+      "ring": {
+        "focus": { "$type": "color", "$value": "{primitive.color.blue.300}" }
+      },
+      "form": {
+        "text": {
+          "default": { "$type": "color", "$value": "{primitive.color.gray.50}" },
+          "placeholder": { "$type": "color", "$value": "{primitive.color.gray.400}" }
+        },
+        "border": {
+          "default": { "$type": "color", "$value": "{primitive.color.gray.600}" },
+          "hover": { "$type": "color", "$value": "{primitive.color.gray.400}" },
+          "readOnly": { "$type": "color", "$value": "{primitive.color.gray.600}" },
+          "disabled": { "$type": "color", "$value": "{primitive.color.gray.700}" },
+          "error": { "$type": "color", "$value": "{primitive.color.red.300}" }
+        }
+      }
+    }
+  }
+}

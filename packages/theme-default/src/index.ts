@@ -4,6 +4,7 @@ import { metaLightUnresolved } from './dist/meta-light-unresolved.js';
 import { metaLight } from './dist/meta-light.js'; // TODO: auto-generate this file
 import * as tokensDark from './dist/tokens-dark.js';
 import * as tokensLight from './dist/tokens-light.js';
+import { createTokenManifest } from '@hitchhub/core';
 
 export const meta = {
   light: {
@@ -20,3 +21,7 @@ export const tokens = {
   light: tokensLight,
   dark: tokensDark,
 };
+
+/** Pre-normalized at module initialisation; raw DTCG JSON is never parsed while rendering. */
+export const manifest = createTokenManifest(metaLightUnresolved, metaLight);
+export const darkManifest = createTokenManifest(metaDarkUnresolved, metaDark);

@@ -82,7 +82,7 @@ describe('tailwindThemeFormatter', () => {
   });
 
   describe('with prefix', () => {
-    const { formatArray } = testFormatter({
+    const { formatArray: formatPrefixedArray } = testFormatter({
       formatter: tailwindThemeFormatter,
       platformConfig: {
         prefix: 'prefix',
@@ -90,7 +90,7 @@ describe('tailwindThemeFormatter', () => {
     });
 
     it('should return color configuration with token value and without prefix', async () => {
-      const formatted = await formatArray({
+      const formatted = await formatPrefixedArray({
         allTokens: [
           {
             name: 'prefix-color-surface-primary',

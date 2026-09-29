@@ -4,7 +4,6 @@ import { minifyDictionary } from './minify-dictionary.js';
 
 export async function typeScriptFormatter({
   dictionary,
-  platform,
   options,
   file,
 }: FormatFnArguments) {

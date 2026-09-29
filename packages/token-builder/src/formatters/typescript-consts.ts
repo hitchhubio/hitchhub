@@ -31,7 +31,6 @@ export function getTokens({
 
 export async function typeScriptConstsFormatter({
   dictionary,
-  platform,
   options,
   file,
 }: FormatFnArguments) {

@@ -13,7 +13,6 @@ function isTransformedToken(value: unknown): value is TransformedToken {
 
 export async function cssVariableObjectFormatter({
   dictionary,
-  platform,
   options,
   file,
 }: FormatFnArguments) {

@@ -3,9 +3,7 @@ import { minifyDictionary } from './minify-dictionary.js';
 
 export async function dtcgFormatter({
   dictionary,
-  platform,
   options,
-  file,
 }: FormatFnArguments) {
   const tokens = minifyDictionary({
     tokens: dictionary.tokens,
