@@ -1,0 +1,4 @@
+{
+  "extends": "@hitchhub/ts-config/tsconfig.json",
+  "compilerOptions": { "types": ["vitest/globals"] }
+}

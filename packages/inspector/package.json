@@ -1,0 +1,31 @@
+{
+  "name": "@hitchhub/inspector",
+  "version": "0.1.0",
+  "description": "Opt-in DOM metadata inspection and token overlays for HitchHub.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": { ".": "./dist/index.js" },
+  "files": ["dist"],
+  "publishConfig": { "access": "public" },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "types:check": "tsc -b --noEmit --incremental",
+    "lint": "eslint 'src/**/*.ts'",
+    "format": "prettier 'src/**/*.ts' --write",
+    "format:check": "prettier 'src/**/*.ts' --check"
+  },
+  "prettier": "@aaos/prettier-config",
+  "dependencies": { "@hitchhub/core": "workspace:*" },
+  "devDependencies": {
+    "@aaos/eslint-config": "0.5.0",
+    "@aaos/prettier-config": "0.5.0",
+    "@hitchhub/ts-config": "workspace:*",
+    "eslint": "^9.39.1",
+    "prettier": "^3.5.3",
+    "tsup": "^8.5.0",
+    "typescript": "5.9.3",
+    "vitest": "^4.0.14"
+  }
+}

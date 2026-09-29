@@ -129,9 +129,14 @@ function toTailwindConfiguration({
     case 'border': {
       const borderType = token.path[3] as 'radius' | 'width';
 
-      // TODO: review Tailwind v4 config support of border widths
       if (borderType === 'width') {
-        return undefined;
+        return [
+          toTailwindSetting({
+            prefix,
+            setting: 'border-width',
+            variable: toCssVariable({ formatter, token }),
+          }),
+        ];
       }
 
       return [
@@ -194,6 +199,25 @@ function toTailwindConfiguration({
         }),
       ];
     }
+    case 'size': {
+      return [
+        toTailwindSetting({
+          prefix,
+          setting: 'spacing',
+          variable: toCssVariable({ formatter, token }),
+        }),
+      ];
+    }
+    case 'shadow': {
+      return [
+        toTailwindSetting({
+          prefix,
+          setting: 'shadow',
+          removeRoot: true,
+          variable: toCssVariable({ formatter, token }),
+        }),
+      ];
+    }
     default: {
       throw new Error(`Unknown semantic type '${type}'.`);
     }
@@ -230,6 +254,10 @@ function getTailwindVariables({
     }
 
     if (token?.attributes?.type === 'space') {
+      return true;
+    }
+
+    if (['size', 'shadow'].includes(String(token?.attributes?.type))) {
       return true;
     }
 

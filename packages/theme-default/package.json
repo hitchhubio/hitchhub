@@ -7,6 +7,8 @@
   "types": "dist/index.d.ts",
   "exports": {
     ".": "./dist/index.js",
+    "./manifest.json": "./dist/manifest.json",
+    "./tokens.json": "./dist/tokens.json",
     "./theme.css": "./dist/theme.css",
     "./light.css": "./dist/light.css",
     "./dark.css": "./dist/dark.css",
@@ -27,9 +29,13 @@
     "format": "prettier 'src/**/*.ts' --write",
     "format:check": "prettier 'src/**/*.ts' --check",
     "lint": "eslint 'src/**/*.ts'",
+    "types:check": "tsc -b --noEmit --incremental",
     "build": "pnpm build:tokens && pnpm build:source",
     "build:tokens": "tsx scripts/build.ts",
     "build:source": "tsup"
+  },
+  "dependencies": {
+    "@hitchhub/core": "workspace:*"
   },
   "prettier": "@aaos/prettier-config",
   "keywords": [],
@@ -40,7 +46,9 @@
     "@aaos/prettier-config": "0.5.0",
     "@hitchhub/theme-builder": "workspace:*",
     "@hitchhub/ts-config": "workspace:*",
+    "@types/fs-extra": "^11.0.4",
     "eslint": "~9.39.1",
+    "fs-extra": "^11.3.0",
     "prettier": "^3.5.3",
     "tsup": "^8.5.0",
     "tsx": "^4.19.4",
