@@ -7,11 +7,10 @@ import {
 import { tailwind } from '@hitchhub/tailwind';
 import { manifest } from '@hitchhub/theme-default';
 import type { Meta } from '@storybook/react';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { createComponents } from './components.js';
 
 function InspectorDemo() {
-  const host = useRef<HTMLDivElement>(null);
   const [result, setResult] = useState<InspectionResult>();
   const setup = useMemo(() => {
     const registry = createInstrumentationRegistry();
@@ -38,23 +37,18 @@ function InspectorDemo() {
   return (
     <div
       style={{
-        display: 'grid',
-        gridTemplateColumns: 'minmax(280px, 1fr) minmax(320px, 1fr)',
-        alignItems: 'start',
-        gap: 32,
         fontFamily: 'Arial, sans-serif',
+        maxWidth: 760,
       }}
     >
       <div
-        ref={host}
         onClick={(event) => inspect(event.target as Element)}
         style={{
           display: 'flex',
+          flexWrap: 'wrap',
           alignItems: 'center',
           gap: 24,
-          minHeight: 220,
-          padding: 24,
-          border: '1px dashed #94a3b8',
+          marginBottom: 32,
         }}
       >
         <Button>Save changes</Button>
@@ -67,7 +61,7 @@ function InspectorDemo() {
           ]}
         />
       </div>
-      <aside>
+      <aside style={{ overflowWrap: 'anywhere' }}>
         <h2>Token inspector</h2>
         <p>Click an instrumented component part, then hover a token.</p>
         {result ? (

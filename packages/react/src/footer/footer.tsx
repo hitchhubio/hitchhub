@@ -1,5 +1,7 @@
+import type { ReactNode } from 'react';
+
 export type FooterProps = {
-  children?: React.ReactNode;
+  children?: ReactNode;
 };
 
 export function Footer({ children }: FooterProps) {

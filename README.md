@@ -14,11 +14,11 @@ component definitions ──→ styling adapter ──→ generated classes
 
 - `@hitchhub/core` — framework-agnostic definitions, validation, instrumentation registry, and coverage reports.
 - `@hitchhub/tailwind` — Tailwind utility adapter and exports for the existing Style Dictionary compiler.
-- `@hitchhub/components` — ready-made React `Button`, `Avatar`, and `Select` examples.
+- `@hitchhub-react/ds` — ready-made React `Button`, `Avatar`, and `Select` components.
 - `@hitchhub/theme-default` — DTCG source contract plus generated light/dark CSS, Tailwind theme, raw tokens, and normalized manifest.
 - `@hitchhub/inspector` — explicit DOM inspection and visual token overlays.
 
-The existing `@hitchhub/token-builder`, `@hitchhub/token-utils`, and `@hitchhub/theme-builder` packages remain the build foundation. The older `@hitchhub-react/ds` package remains available for migration, but new work should use `@hitchhub/components`.
+The existing `@hitchhub/token-builder`, `@hitchhub/token-utils`, and `@hitchhub/theme-builder` packages remain the build foundation.
 
 ## Public API
 
@@ -64,8 +64,8 @@ Import the generated component CSS and a theme once:
 
 ```tsx
 import '@hitchhub/theme-default/theme.css';
-import '@hitchhub/components/styles.css';
-import { Button } from '@hitchhub/components';
+import '@hitchhub-react/ds/styles.css';
+import { Button } from '@hitchhub-react/ds';
 
 <Button>Save</Button>;
 ```
@@ -128,7 +128,7 @@ pnpm test
 pnpm types:check
 pnpm lint
 pnpm build
-pnpm --dir packages/components storybook
+pnpm --dir packages/react storybook
 ```
 
 Open Storybook at `http://localhost:6006` and choose **Inspector / Token overlay**. Click a rendered part and hover its token rows to see overlays based on actual DOM geometry.
